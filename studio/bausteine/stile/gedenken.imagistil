@@ -1,0 +1,38 @@
+{
+  "format": "imagistil",
+  "version": 1,
+  "id": "gedenken",
+  "name": "Gedenken",
+  "icon": "🕯",
+  "font": "klassisch",
+  "desc": "Gedenken: dunkles Grau mit gedecktem Goldton, sehr zurückhaltend",
+  "colors": {
+    "bg1": "#1c1c1e",
+    "bg2": "#3a3a3f",
+    "fg": "#f2f2f2",
+    "acc": "#c9b78a"
+  },
+  "deco": {
+    "back": [
+      {
+        "shape": "dot",
+        "n": 26,
+        "size": [
+          2,
+          6
+        ],
+        "alpha": 0.3,
+        "colors": [
+          "#c9b78a",
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 171
+      }
+    ],
+    "photo": []
+  }
+}

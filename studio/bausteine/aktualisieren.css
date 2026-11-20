@@ -1,0 +1,23 @@
+/* Baustein „aktualisieren“ – Gestaltung des Hinweises. Quelle: Repo imagicosmos/bausteine, aktualisieren/aktualisieren.css.
+   In den Apps eine Kopie: NICHT VON HAND ÄNDERN. Farben passt jede App über die Variablen --ia-… an
+   (z. B. in ihrem eigenen Stylesheet: .ia-hinweis{ --ia-akzent:#15803d; }). Seit 1.1.0: Mit dem Baustein „design“ (--ds-…)
+   kommen die Farben von dort, die App muss nichts weitergeben; die Werte hinter dem Komma gelten nur ohne „design“. */
+.ia-hinweis{
+  --ia-akzent:var(--ds-akzent, #4338ca); --ia-akzent-text:var(--ds-akzent-text, #ffffff); --ia-flaeche:var(--ds-flaeche, #ffffff);
+  --ia-text:var(--ds-text, #15182c); --ia-leise:var(--ds-leise, #555a70); --ia-linie:var(--ds-linie, #d9dbe6);
+  position:fixed; left:12px; right:12px; bottom:calc(12px + env(safe-area-inset-bottom)); z-index:2147483000;
+  max-width:520px; margin:0 auto; padding:14px 16px; box-sizing:border-box;
+  background:var(--ia-flaeche); color:var(--ia-text); border:1px solid var(--ia-linie); border-left:5px solid var(--ia-akzent);
+  border-radius:12px; box-shadow:0 8px 28px rgba(0,0,0,.18); font:inherit; line-height:1.4;
+}
+.ia-titel{ display:block; font-size:1rem; margin-bottom:4px; }
+.ia-text{ margin:0 0 12px; font-size:.92rem; color:var(--ia-leise); }
+.ia-knoepfe{ display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end; }
+.ia-hinweis .ia-los, .ia-hinweis .ia-spaeter{
+  display:inline-flex; align-items:center; min-height:44px; padding:8px 16px; border-radius:9px; box-sizing:border-box;
+  font:inherit; font-weight:600; text-decoration:none; cursor:pointer;
+}
+.ia-hinweis .ia-los{ background:var(--ia-akzent); color:var(--ia-akzent-text); border:1px solid var(--ia-akzent); }
+.ia-hinweis .ia-spaeter{ background:var(--ia-flaeche); color:var(--ia-akzent); border:1px solid var(--ia-linie); }
+.ia-schalter{ display:flex; align-items:flex-start; gap:8px; cursor:pointer; }
+.ia-schalter input{ width:20px; height:20px; margin:2px 0 0; flex:none; accent-color:var(--ia-akzent, #4338ca); }

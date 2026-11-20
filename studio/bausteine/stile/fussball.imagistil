@@ -1,0 +1,74 @@
+{
+  "format": "imagistil",
+  "version": 1,
+  "id": "fussball",
+  "name": "Fußball",
+  "icon": "⚽",
+  "font": "plakativ",
+  "desc": "Fußball: Rasengrün mit gelbem Akzent, helle Lichtpunkte und Sterne",
+  "colors": {
+    "bg1": "#0f5a2a",
+    "bg2": "#1f8a3f",
+    "fg": "#ffffff",
+    "acc": "#ffe14d"
+  },
+  "deco": {
+    "back": [
+      {
+        "shape": "dot",
+        "n": 22,
+        "size": [
+          50,
+          180
+        ],
+        "alpha": 0.07,
+        "colors": [
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 131
+      },
+      {
+        "shape": "star",
+        "n": 18,
+        "size": [
+          12,
+          30
+        ],
+        "alpha": 0.55,
+        "colors": [
+          "#ffe14d",
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 132
+      }
+    ],
+    "photo": [
+      {
+        "shape": "star",
+        "n": 16,
+        "size": [
+          14,
+          36
+        ],
+        "alpha": 0.9,
+        "colors": [
+          "#ffe14d",
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          0.3
+        ],
+        "seed": 133
+      }
+    ]
+  }
+}

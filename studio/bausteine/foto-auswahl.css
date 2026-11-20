@@ -1,0 +1,51 @@
+/* Baustein „fotoauswahl“ – Gestaltung. Quelle: Repo imagicosmos/bausteine, fotoauswahl/foto-auswahl.css.
+   In den Apps eine Kopie: NICHT VON HAND ÄNDERN. Farben passt jede App über die Variablen --fa-… an
+   (z. B. in ihrem eigenen Stylesheet: .fa-fenster{ --fa-akzent:#15803d; }). Seit 1.1.0: Mit dem Baustein „design“ (--ds-…)
+   kommen die Farben von dort, die App muss nichts weitergeben; die Werte hinter dem Komma gelten nur ohne „design“. */
+.fa-fenster{
+  --fa-akzent:var(--ds-akzent, #4338ca); --fa-akzent-text:var(--ds-akzent-text, #ffffff); --fa-grund:var(--ds-grund, #f4f5f9);
+  --fa-flaeche:var(--ds-flaeche, #ffffff); --fa-text:var(--ds-text, #15182c); --fa-leise:var(--ds-leise, #555a70); --fa-linie:var(--ds-linie, #d9dbe6);
+  position:fixed; inset:0; width:100vw; height:100vh; height:100dvh; max-width:none; max-height:none; margin:0; padding:0; border:0;
+  background:var(--fa-grund); color:var(--fa-text); font:inherit; overflow:hidden;
+}
+.fa-fenster[open]{ display:flex; flex-direction:column; }
+.fa-fenster::backdrop{ background:rgba(0,0,0,.5); }
+.fa-kopf{ flex:none; display:flex; align-items:center; gap:10px; padding:calc(8px + env(safe-area-inset-top)) 12px 8px; background:var(--fa-flaeche); border-bottom:1px solid var(--fa-linie); }
+.fa-kopf h2{ flex:1; min-width:0; margin:0; font-size:1.05rem; line-height:1.2; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.fa-zahl{ flex:0 1 auto; min-width:0; font-size:.85rem; line-height:1.2; color:var(--fa-leise); text-align:right; }   /* darf umbrechen, damit „Übernehmen“ immer sichtbar bleibt */
+.fa-fenster button{ font:inherit; cursor:pointer; }
+.fa-zu{ flex:none; width:44px; height:44px; border-radius:50%; border:1px solid var(--fa-linie); background:var(--fa-flaeche); color:var(--fa-text); font-size:1.1rem; }
+.fa-fertig{ flex:none; min-height:44px; padding:8px 16px; border-radius:9px; border:1px solid var(--fa-akzent); background:var(--fa-akzent); color:var(--fa-akzent-text); font-weight:600; }
+.fa-fertig:disabled{ opacity:.45; cursor:default; }
+.fa-leiste{ flex:none; display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:8px 12px; background:var(--fa-flaeche); border-bottom:1px solid var(--fa-linie); }
+.fa-leiste[hidden]{ display:none; }
+.fa-leiste button{ min-height:36px; padding:5px 12px; border-radius:9px; border:1px solid var(--fa-linie); background:var(--fa-flaeche); color:var(--fa-akzent); font-weight:600; font-size:.9rem; }
+.fa-leise{ color:var(--fa-leise); font-size:.9rem; }
+.fa-inhalt{ flex:1; min-height:0; overflow-y:auto; overscroll-behavior:contain; padding:0 0 calc(16px + env(safe-area-inset-bottom)); outline:none; position:relative; }
+.fa-hinweis{ margin:40px 20px; text-align:center; color:var(--fa-leise); }
+.fa-tag{ content-visibility:auto; contain-intrinsic-size:auto 320px; }
+.fa-tagkopf{ display:flex; align-items:center; gap:10px; padding:14px 12px 6px; }
+.fa-tagkopf h3{ flex:1; margin:0; font-size:.95rem; font-weight:600; }
+.fa-tagzahl{ font-weight:400; color:var(--fa-leise); margin-left:4px; }
+.fa-im-zeitraum .fa-tagkopf h3{ color:var(--fa-akzent); }
+.fa-alle{ flex:none; min-height:36px; padding:4px 12px; border-radius:18px; border:1px solid var(--fa-linie); background:var(--fa-flaeche); color:var(--fa-akzent); font-size:.85rem; font-weight:600; }
+.fa-raster{ display:grid; grid-template-columns:repeat(auto-fill,minmax(96px,1fr)); gap:3px; padding:0 3px; }
+.fa-bild{ position:relative; display:block; aspect-ratio:1; padding:0; border:0; background:var(--fa-linie); overflow:hidden; -webkit-tap-highlight-color:transparent; }
+.fa-bild img{ display:block; width:100%; height:100%; object-fit:cover; transition:transform .12s; -webkit-user-select:none; user-select:none; pointer-events:none; }
+.fa-bild img:not([src]){ visibility:hidden; }
+.fa-haken{ position:absolute; top:6px; right:6px; width:24px; height:24px; border-radius:50%; border:2px solid #fff; background:rgba(0,0,0,.28); color:transparent;
+  display:flex; align-items:center; justify-content:center; font-size:.85rem; font-weight:700; line-height:1; box-shadow:0 0 0 1px rgba(0,0,0,.25); }
+.fa-bild.fa-an{ background:var(--fa-akzent); }
+.fa-bild.fa-an img{ transform:scale(.84); border-radius:6px; }
+.fa-bild.fa-an .fa-haken{ background:var(--fa-akzent); color:var(--fa-akzent-text); box-shadow:none; }
+.fa-bild:focus-visible, .fa-fenster button:focus-visible{ outline:3px solid var(--fa-akzent); outline-offset:2px; }
+.fa-bild:focus-visible{ outline-offset:-3px; z-index:1; }
+.fa-voll .fa-bild:not(.fa-an){ opacity:.5; }
+/* Videos (ab 1.2.0): ▶ und Länge unten links, Filter „Alle · Fotos · Videos“ in der Leiste */
+.fa-dauer{ position:absolute; left:5px; bottom:5px; padding:2px 6px; border-radius:6px; background:rgba(0,0,0,.6); color:#fff; font-size:.75rem; font-weight:600; line-height:1.3; pointer-events:none; }
+.fa-filter{ display:inline-flex; border:1px solid var(--fa-linie); border-radius:9px; overflow:hidden; }
+.fa-leiste .fa-filter button{ border:0; border-radius:0; min-height:36px; color:var(--fa-text); font-weight:500; }
+.fa-leiste .fa-filter button + button{ border-left:1px solid var(--fa-linie); }
+.fa-leiste .fa-filter .fa-art-an{ background:var(--fa-akzent); color:var(--fa-akzent-text); font-weight:600; }
+@media (min-width:900px){ .fa-raster{ grid-template-columns:repeat(auto-fill,minmax(132px,1fr)); } .fa-kopf, .fa-leiste, .fa-tagkopf{ padding-left:20px; padding-right:20px; } .fa-raster{ padding:0 20px; } }
+@media (prefers-reduced-motion:reduce){ .fa-bild img{ transition:none; } }

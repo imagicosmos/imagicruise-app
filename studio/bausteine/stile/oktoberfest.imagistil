@@ -1,0 +1,76 @@
+{
+  "format": "imagistil",
+  "version": 1,
+  "id": "oktoberfest",
+  "name": "Oktoberfest",
+  "icon": "🥨",
+  "font": "nostalgie",
+  "desc": "Oktoberfest: hell, Weiß und Himmelblau mit rotem Akzent und blau-weißem Konfetti",
+  "colors": {
+    "bg1": "#eef6ff",
+    "bg2": "#cfe4ff",
+    "fg": "#0b3d91",
+    "acc": "#c8102e"
+  },
+  "deco": {
+    "back": [
+      {
+        "shape": "confetti",
+        "n": 60,
+        "size": [
+          16,
+          32
+        ],
+        "alpha": 0.45,
+        "colors": [
+          "#1e6fd9",
+          "#ffffff",
+          "#7fb2f0"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 251
+      },
+      {
+        "shape": "dot",
+        "n": 20,
+        "size": [
+          5,
+          10
+        ],
+        "alpha": 0.3,
+        "colors": [
+          "#c8102e"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 252
+      }
+    ],
+    "photo": [
+      {
+        "shape": "confetti",
+        "n": 50,
+        "size": [
+          16,
+          32
+        ],
+        "alpha": 0.9,
+        "colors": [
+          "#1e6fd9",
+          "#ffffff",
+          "#7fb2f0"
+        ],
+        "area": [
+          0,
+          0.3
+        ],
+        "seed": 253
+      }
+    ]
+  }
+}

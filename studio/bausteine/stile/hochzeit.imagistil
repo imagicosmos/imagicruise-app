@@ -1,0 +1,77 @@
+{
+  "format": "imagistil",
+  "version": 1,
+  "id": "hochzeit",
+  "name": "Hochzeit",
+  "icon": "💍",
+  "font": "schreibschrift",
+  "desc": "Hochzeit: hell, Creme und Rosé mit kupferfarbenem Akzent und Herzen",
+  "colors": {
+    "bg1": "#fcf5f0",
+    "bg2": "#f1d9d2",
+    "fg": "#3b2a2a",
+    "acc": "#a8604d"
+  },
+  "deco": {
+    "back": [
+      {
+        "shape": "heart",
+        "n": 24,
+        "size": [
+          26,
+          76
+        ],
+        "alpha": 0.3,
+        "colors": [
+          "#d99a8b",
+          "#c9a36a",
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 81
+      },
+      {
+        "shape": "dot",
+        "n": 30,
+        "size": [
+          4,
+          10
+        ],
+        "alpha": 0.45,
+        "colors": [
+          "#c9a36a",
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 82
+      }
+    ],
+    "photo": [
+      {
+        "shape": "heart",
+        "n": 18,
+        "size": [
+          26,
+          70
+        ],
+        "alpha": 0.85,
+        "colors": [
+          "#ffffff",
+          "#f4c7bd",
+          "#f2d59b"
+        ],
+        "area": [
+          0,
+          0.3
+        ],
+        "seed": 83
+      }
+    ]
+  }
+}

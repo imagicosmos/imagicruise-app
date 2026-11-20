@@ -1,0 +1,89 @@
+/* Baustein „menue“ – Gestaltung von Menü, Hilfe und „Über“. Quelle: Repo imagicosmos/bausteine, menue/menue.css.
+   In den Apps eine Kopie: NICHT VON HAND ÄNDERN. Farben und Schrift der Marke (--im-markenschrift) passt jede App über die Variablen --im-… an,
+   in ihrem eigenen Stylesheet, z. B.:
+   .im-knopf, .im-menue, .im-seite { --im-akzent:var(--acc); --im-flaeche:var(--surf); … }
+   Seit 1.2.0: Ist der Baustein „design“ eingebunden (Variablen --ds-…), kommen alle Farben und die Schrift der Marke
+   von dort; die App muss dann nichts weitergeben. Die Werte hinter dem Komma gelten nur ohne „design“.
+   Die Grundwerte unten haben keine Gewichtung (:where), damit die Angaben der App immer gewinnen. */
+:where(.im-knopf, .im-menue, .im-seite, .im-kopfleiste){
+  --im-grund:var(--ds-grund, #f3f5f8); --im-flaeche:var(--ds-flaeche, #ffffff); --im-flaeche2:var(--ds-flaeche2, #eceff4); --im-linie:var(--ds-linie, #d5d9e2);
+  --im-text:var(--ds-text, #15182c); --im-text2:var(--ds-text2, #3a3f55); --im-leise:var(--ds-leise, #5b6075);
+  --im-akzent:var(--ds-akzent, #4338ca); --im-akzent-zart:var(--ds-akzent-zart, #e3e1fb); --im-akzent-text:var(--ds-akzent-text, #ffffff);
+  --im-marke:var(--ds-text, #15182c); --im-marke2:var(--ds-marke2, #4338ca); --im-marke3:var(--ds-marke3, var(--im-marke2));
+  --im-druck:var(--ds-druck, brightness(.94)); --im-schatten:var(--ds-schatten-gross, 0 12px 32px rgba(0,0,0,.18));
+  --im-markenschrift:var(--ds-schrift-marke);
+}
+:where(:root[data-theme=dark]) :where(.im-knopf, .im-menue, .im-seite, .im-kopfleiste){
+  --im-grund:var(--ds-grund, #0f1115); --im-flaeche:var(--ds-flaeche, #171a21); --im-flaeche2:var(--ds-flaeche2, #1f232c); --im-linie:var(--ds-linie, #2d323d);
+  --im-text:var(--ds-text, #eceef3); --im-text2:var(--ds-text2, #c7cbd6); --im-leise:var(--ds-leise, #9aa0b0);
+  --im-akzent:var(--ds-akzent, #a5b4fc); --im-akzent-zart:var(--ds-akzent-zart, #25264a); --im-akzent-text:var(--ds-akzent-text, #0f1115);
+  --im-marke:var(--ds-text, #f5f2ea); --im-marke2:var(--ds-marke2, #a5b4fc); --im-marke3:var(--ds-marke3, var(--im-marke2));
+  --im-druck:var(--ds-druck, brightness(1.25)); --im-schatten:var(--ds-schatten-gross, 0 12px 32px rgba(0,0,0,.45));
+}
+.im-menue[hidden], .im-seite[hidden], .im-menue [hidden], .im-seite [hidden]{ display:none !important; }
+
+.im-sym{ width:22px; height:22px; flex:none; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+.im-ibtn{ width:42px; height:42px; border-radius:50%; border:0; background:none; color:var(--im-text); display:grid; place-items:center;
+  padding:0; flex:none; cursor:pointer; font:inherit; -webkit-tap-highlight-color:transparent; }
+.im-ibtn:active{ background:var(--im-flaeche2); }
+
+/* Menü */
+.im-menue{ position:fixed; z-index:22; top:56px; right:8px; min-width:230px; max-width:calc(100vw - 16px); box-sizing:border-box;
+  background:var(--im-flaeche2); color:var(--im-text); border:1px solid var(--im-linie); border-radius:16px; padding:6px;
+  box-shadow:var(--im-schatten); font-family:inherit; }
+.im-menue .im-punkt{ display:flex; align-items:center; gap:12px; width:100%; background:none; border:0; border-radius:10px;
+  padding:12px; font:inherit; font-size:15px; color:inherit; text-align:left; cursor:pointer; -webkit-tap-highlight-color:transparent; }
+.im-menue .im-punkt:active{ filter:var(--im-druck); background:var(--im-flaeche); }
+.im-menue .im-titel{ font-size:12px; color:var(--im-leise); padding:8px 12px 6px; }
+.im-menue .im-wahl{ display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; padding:0 6px 8px; }
+.im-menue .im-wahl button{ padding:9px 2px; font:inherit; font-size:13px; color:inherit; text-align:center; cursor:pointer;
+  border:1px solid var(--im-linie); border-radius:10px; background:var(--im-flaeche); }
+.im-menue .im-wahl button.im-an{ border-color:var(--im-akzent); background:var(--im-akzent-zart); }
+.im-menue hr{ border:0; border-top:1px solid var(--im-linie); margin:4px 6px; }
+
+/* Seiten „Hilfe“ und „Über“ */
+.im-seite{ position:fixed; inset:0; bottom:auto; height:var(--vh, 100dvh); z-index:25; display:flex; flex-direction:column;
+  background:var(--im-grund); color:var(--im-text); font-family:inherit; }
+.im-seite .im-wrap{ width:100%; max-width:560px; margin:0 auto; box-sizing:border-box; }
+.im-seite .im-kopf{ flex:none; background:var(--im-flaeche); padding:calc(6px + env(safe-area-inset-top)) 6px 6px; }
+.im-seite .im-kopf .im-wrap{ display:flex; align-items:center; gap:2px; }
+.im-seite .im-kopf h2{ margin:0; font-size:18px; flex:1; padding-left:6px; }
+.im-seite .im-inhalt{ flex:1; overflow-y:auto; overflow-x:hidden; padding:4px 14px calc(32px + env(safe-area-inset-bottom));
+  overscroll-behavior:contain; hyphens:auto; overflow-wrap:break-word; }
+.im-seite .im-karte{ background:var(--im-flaeche); border:1px solid var(--im-linie); border-radius:16px; padding:14px; margin-top:12px;
+  font-size:13.5px; line-height:1.55; color:var(--im-text2); }
+.im-seite .im-karte h3{ margin:0 0 8px; font-size:15px; color:var(--im-text); }
+.im-seite .im-karte ul{ margin:0; padding-left:20px; }
+.im-seite .im-karte li{ margin:0 0 4px; }
+/* Inhalt der Seite „Über“: Baustein „ueber“ (ueber.css) */
+
+/* Hilfe: aufklappbare Abschnitte (die der App und die des Bausteins) */
+.im-seite details{ background:var(--im-flaeche); border:1px solid var(--im-linie); border-radius:16px; margin-top:10px; }
+.im-seite summary{ list-style:none; display:flex; align-items:center; gap:10px; padding:14px; font-size:15px; font-weight:600; cursor:pointer; }
+.im-seite summary::-webkit-details-marker{ display:none; }
+.im-seite summary .im-sym, .im-seite summary svg{ color:var(--im-akzent); }
+.im-seite summary::after{ content:""; margin-left:auto; flex:none; width:8px; height:8px; border-right:2px solid var(--im-leise);
+  border-bottom:2px solid var(--im-leise); transform:rotate(45deg); transition:transform .2s; }
+.im-seite details[open] summary::after{ transform:rotate(-135deg); }
+.im-seite .im-in{ padding:0 14px 14px; font-size:13.5px; line-height:1.55; color:var(--im-text2); }
+.im-seite .im-in p{ margin:0 0 8px; }
+.im-seite .im-in p:last-child{ margin:0; }
+.im-seite .im-in b{ color:var(--im-text); }
+.im-seite .im-in a{ color:var(--im-akzent); }
+
+/* Kopf links in der Menüzeile (seit 1.1.0): gleich in allen Apps. Farbverlauf des farbigen Teils: --im-marke2 → --im-marke3 */
+.im-kopfleiste{ background:var(--im-flaeche); color:var(--im-text); border-bottom:1px solid var(--im-linie);
+  padding:calc(6px + env(safe-area-inset-top)) 4px 6px 12px; box-sizing:border-box; }
+.im-kopfreihe{ display:flex; align-items:center; gap:4px; min-height:44px; }
+.im-kopf-marke{ display:flex; align-items:center; gap:10px; flex:1 1 auto; min-width:0; margin:0; padding:2px 0; border:0; background:none;
+  color:var(--im-marke); font:inherit; text-align:left; text-decoration:none; cursor:default; -webkit-tap-highlight-color:transparent; }
+a.im-kopf-marke, button.im-kopf-marke{ cursor:pointer; }
+.im-kopf-icon{ width:32px; height:32px; flex:none; border-radius:8px; }
+.im-kopf-text{ display:flex; flex-direction:column; min-width:0; }
+.im-kopf-wort{ font-family:var(--im-markenschrift, inherit); font-weight:700; font-size:21px; line-height:1.15; padding-top:3px; white-space:nowrap; color:var(--im-marke); }
+.im-kopf-teil{ background:linear-gradient(90deg, var(--im-marke2), var(--im-marke3, var(--im-marke2)));
+  -webkit-background-clip:text; background-clip:text; color:transparent; }
+.im-kopf-unter{ font-size:12px; line-height:1.3; color:var(--im-leise); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.im-kopf-unter:empty{ display:none; }
+.im-kopfleiste .im-ibtn{ color:var(--im-text); }          /* Schnellknöpfe der App und ⋮ (seit 1.3.0) */
+.im-kopfleiste .im-ibtn:active{ background:var(--im-flaeche2); }

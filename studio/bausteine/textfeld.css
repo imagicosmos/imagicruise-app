@@ -1,0 +1,26 @@
+/* Baustein „textfeld“ – Gestaltung. Quelle: Repo imagicosmos/bausteine, textfeld/textfeld.css.
+   In den Apps eine Kopie: NICHT VON HAND ÄNDERN. Farben aus dem Baustein design (--ds-…), sonst feste Grundwerte;
+   eine App ohne design kann --tf-… setzen. */
+.tf{ margin:0 0 var(--ds-abstand-3, 12px); }
+.tf-kopf{ display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap; margin-bottom:6px; }
+.tf-name{ font-size:.9rem; font-weight:600; color:var(--tf-leise, var(--ds-leise, #596070)); }
+.tf-knoepfe{ display:flex; flex-wrap:wrap; gap:6px; margin-left:auto; }
+.tf-knopf{ display:inline-flex; align-items:center; gap:5px; min-height:34px; padding:5px 12px; font:inherit; font-size:.85rem; cursor:pointer;
+  color:var(--tf-text, var(--ds-text, #16191f)); background:var(--tf-flaeche2, var(--ds-flaeche2, #eceef2));
+  border:1px solid var(--tf-linie, var(--ds-linie, #d9dce3)); border-radius:var(--ds-radius-rund, 999px); -webkit-tap-highlight-color:transparent; }
+.tf-knopf:active{ filter:var(--ds-druck, brightness(.94)); }
+.tf-sym{ width:15px; height:15px; flex:none; }
+.tf-diktat.tf-an{ color:var(--tf-fehler, var(--ds-fehler, #b91c1c)); background:var(--tf-fehler-zart, var(--ds-fehler-zart, #fee2e2));
+  border-color:var(--tf-fehler, var(--ds-fehler, #b91c1c)); }
+.tf-diktat.tf-an .tf-sym{ animation:tf-puls 1.2s ease-in-out infinite; }
+@keyframes tf-puls{ 50%{ opacity:.35; } }
+@media (prefers-reduced-motion: reduce){ .tf-diktat.tf-an .tf-sym{ animation:none; } }
+.tf-feld{ display:block; width:100%; box-sizing:border-box; min-height:44px; padding:9px 11px; font:inherit; line-height:1.45;
+  color:var(--tf-text, var(--ds-text, #16191f)); background:var(--tf-flaeche, var(--ds-flaeche, #ffffff));
+  border:1px solid var(--tf-feldrand, var(--ds-feldrand, #b4b9c4)); border-radius:var(--ds-radius-klein, 9px); }
+textarea.tf-feld{ min-height:110px; resize:vertical; }
+.tf-feld:focus{ outline:none; border-color:var(--tf-akzent, var(--ds-akzent, #6d28d9)); box-shadow:0 0 0 3px var(--tf-akzent-zart, var(--ds-akzent-zart, #ede9fe)); }
+.tf-feld::placeholder{ color:var(--tf-leise, var(--ds-leise, #596070)); opacity:.8; }
+.tf-zaehler{ margin-top:4px; text-align:right; font-size:.8rem; color:var(--tf-leise, var(--ds-leise, #596070)); }
+.tf-zaehler[data-stufe="fast"]{ color:var(--tf-warn, var(--ds-warn, #92400e)); }
+.tf-zaehler[data-stufe="zuviel"]{ color:var(--tf-fehler, var(--ds-fehler, #b91c1c)); font-weight:600; }

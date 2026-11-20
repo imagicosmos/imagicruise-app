@@ -1,0 +1,91 @@
+{
+  "format": "imagistil",
+  "version": 1,
+  "id": "taufe",
+  "name": "Taufe",
+  "icon": "🕊",
+  "font": "klassisch",
+  "desc": "Taufe: hell, zartes Himmelblau mit ruhigem Blau als Akzent und feinen Lichtpunkten",
+  "colors": {
+    "bg1": "#f4f9fd",
+    "bg2": "#d3e5f3",
+    "fg": "#243447",
+    "acc": "#3f729b"
+  },
+  "deco": {
+    "back": [
+      {
+        "shape": "dot",
+        "n": 30,
+        "size": [
+          30,
+          130
+        ],
+        "alpha": 0.35,
+        "colors": [
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 111
+      },
+      {
+        "shape": "star",
+        "n": 14,
+        "size": [
+          12,
+          26
+        ],
+        "alpha": 0.5,
+        "colors": [
+          "#d9b96a",
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 112
+      }
+    ],
+    "photo": [
+      {
+        "shape": "dot",
+        "n": 40,
+        "size": [
+          4,
+          12
+        ],
+        "alpha": 0.8,
+        "colors": [
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          0.35
+        ],
+        "seed": 113
+      },
+      {
+        "shape": "star",
+        "n": 10,
+        "size": [
+          14,
+          30
+        ],
+        "alpha": 0.85,
+        "colors": [
+          "#ffffff",
+          "#f2dc9b"
+        ],
+        "area": [
+          0,
+          0.3
+        ],
+        "seed": 114
+      }
+    ]
+  }
+}

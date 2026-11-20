@@ -1,0 +1,55 @@
+{
+  "format": "imagistil",
+  "version": 1,
+  "id": "urlaub",
+  "name": "Urlaub",
+  "icon": "🌴",
+  "font": "retro",
+  "desc": "Urlaub: Meerblau bis Türkis mit sonnengelbem Akzent und Lichtpunkten",
+  "colors": {
+    "bg1": "#0a5f8f",
+    "bg2": "#18a6a0",
+    "fg": "#ffffff",
+    "acc": "#ffd97a"
+  },
+  "deco": {
+    "back": [
+      {
+        "shape": "dot",
+        "n": 26,
+        "size": [
+          40,
+          170
+        ],
+        "alpha": 0.08,
+        "colors": [
+          "#ffffff",
+          "#ffd97a"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 71
+      },
+      {
+        "shape": "star",
+        "n": 14,
+        "size": [
+          10,
+          22
+        ],
+        "alpha": 0.5,
+        "colors": [
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 72
+      }
+    ],
+    "photo": []
+  }
+}

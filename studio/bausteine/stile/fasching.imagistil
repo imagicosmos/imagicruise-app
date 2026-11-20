@@ -1,0 +1,102 @@
+{
+  "format": "imagistil",
+  "version": 1,
+  "id": "fasching",
+  "name": "Fasching",
+  "icon": "🎭",
+  "font": "marker",
+  "desc": "Fasching: Orange bis Pink mit gelbem Akzent und sehr viel buntem Konfetti",
+  "colors": {
+    "bg1": "#c2500a",
+    "bg2": "#b81f5a",
+    "fg": "#ffffff",
+    "acc": "#fff275"
+  },
+  "deco": {
+    "back": [
+      {
+        "shape": "confetti",
+        "n": 110,
+        "size": [
+          14,
+          32
+        ],
+        "alpha": 0.55,
+        "colors": [
+          "#fff275",
+          "#4dd0e1",
+          "#ffffff",
+          "#7e57c2",
+          "#aed581"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 141
+      },
+      {
+        "shape": "dot",
+        "n": 40,
+        "size": [
+          8,
+          18
+        ],
+        "alpha": 0.45,
+        "colors": [
+          "#fff275",
+          "#4dd0e1",
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 142
+      }
+    ],
+    "photo": [
+      {
+        "shape": "confetti",
+        "n": 80,
+        "size": [
+          14,
+          34
+        ],
+        "alpha": 0.9,
+        "colors": [
+          "#fff275",
+          "#4dd0e1",
+          "#ffffff",
+          "#ff8a65",
+          "#aed581",
+          "#f06292"
+        ],
+        "area": [
+          0,
+          0.36
+        ],
+        "seed": 143
+      },
+      {
+        "shape": "dot",
+        "n": 24,
+        "size": [
+          8,
+          18
+        ],
+        "alpha": 0.85,
+        "colors": [
+          "#fff275",
+          "#4dd0e1",
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          0.3
+        ],
+        "seed": 144
+      }
+    ]
+  }
+}

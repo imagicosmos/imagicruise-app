@@ -1,0 +1,25 @@
+/* Baustein „ueber“ – Gestaltung des Inhalts der Seite „Über …“. Quelle: Repo imagicosmos/bausteine, ueber/ueber.css.
+   In den Apps eine Kopie: NICHT VON HAND ÄNDERN. Farben: die Variablen --im-… des Bausteins menue, sonst die des Bausteins
+   design (--ds-…), sonst feste Grundwerte. Klassen wie bisher im Baustein menue (im-…), damit Apps und Tests unverändert bleiben. */
+.im-ueber-inhalt .im-karte{ background:var(--im-flaeche, var(--ds-flaeche, #ffffff)); border:1px solid var(--im-linie, var(--ds-linie, #d5d9e2)); border-radius:16px;
+  padding:14px; margin-top:12px; font-size:13.5px; line-height:1.55; color:var(--im-text2, var(--ds-text2, #3a3f55)); }
+.im-ueber-inhalt .im-karte h3{ margin:0 0 8px; font-size:15px; color:var(--im-text, var(--ds-text, #15182c)); }
+.im-ueber-inhalt .im-karte ul{ margin:0; padding-left:20px; }
+.im-ueber-inhalt .im-karte li{ margin:0 0 4px; }
+.im-ueber-inhalt [hidden]{ display:none !important; }
+.im-ueber-inhalt .im-ueber-kopf{ text-align:center; padding:26px 0 6px; }
+.im-ueber-inhalt .im-marke{ font-size:38px; font-weight:700; line-height:1.1; font-family:var(--im-markenschrift, var(--ds-schrift-marke, inherit)); color:var(--im-marke, var(--ds-text, #15182c)); }  /* ohne --im-markenschrift: Schrift der Seite */
+.im-ueber-inhalt .im-marke b{ font-weight:inherit; background:linear-gradient(90deg, var(--im-marke2, var(--ds-marke2, #4338ca)), var(--im-marke3, var(--ds-marke3, var(--im-marke2, var(--ds-marke2, #4338ca)))));
+  -webkit-background-clip:text; background-clip:text; color:transparent; }
+.im-ueber-inhalt .im-ueber-kopf p{ color:var(--im-leise, var(--ds-leise, #5b6075)); font-size:13.5px; margin:8px 0 0; }
+.im-ueber-inhalt .im-zeile{ display:flex; justify-content:space-between; gap:12px; padding:5px 0; }
+.im-ueber-inhalt .im-zeile span:first-child{ color:var(--im-leise, var(--ds-leise, #5b6075)); }
+.im-ueber-inhalt .im-zeile span:last-child{ text-align:right; color:var(--im-text, var(--ds-text, #15182c)); }
+.im-ueber-inhalt .im-knoepfe{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+.im-ueber-inhalt .im-btn{ flex:1 1 140px; display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:46px; padding:11px 10px;
+  background:var(--im-flaeche2, var(--ds-flaeche2, #eceff4)); color:var(--im-text, var(--ds-text, #15182c)); border:1px solid var(--im-linie, var(--ds-linie, #d5d9e2)); border-radius:14px; font:inherit; font-size:14px; cursor:pointer; }
+.im-ueber-inhalt .im-btn:active{ filter:var(--im-druck, var(--ds-druck, brightness(.94))); }
+.im-ueber-inhalt .im-btn:disabled{ opacity:.6; cursor:default; }
+.im-ueber-inhalt .im-meldung{ margin:10px 0 0; color:var(--im-text, var(--ds-text, #15182c)); }
+.im-ueber-inhalt .im-schalter{ margin-top:12px; color:var(--im-text, var(--ds-text, #15182c)); }
+.im-ueber-inhalt .im-schalter input{ accent-color:var(--im-akzent, var(--ds-akzent, #4338ca)); }
