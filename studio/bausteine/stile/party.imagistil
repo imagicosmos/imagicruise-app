@@ -1,0 +1,79 @@
+{
+  "format": "imagistil",
+  "version": 1,
+  "id": "party",
+  "name": "Party",
+  "icon": "🎉",
+  "font": "plakativ",
+  "desc": "Party: Neon-Pink bis tiefes Violett mit türkisem Akzent und viel Konfetti",
+  "colors": {
+    "bg1": "#d0005a",
+    "bg2": "#3a0ca3",
+    "fg": "#ffffff",
+    "acc": "#00f5d4"
+  },
+  "deco": {
+    "back": [
+      {
+        "shape": "confetti",
+        "n": 80,
+        "size": [
+          14,
+          30
+        ],
+        "alpha": 0.5,
+        "colors": [
+          "#00f5d4",
+          "#ffbe0b",
+          "#ffffff",
+          "#fb5607"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 341
+      },
+      {
+        "shape": "dot",
+        "n": 30,
+        "size": [
+          5,
+          12
+        ],
+        "alpha": 0.35,
+        "colors": [
+          "#00f5d4",
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 342
+      }
+    ],
+    "photo": [
+      {
+        "shape": "confetti",
+        "n": 70,
+        "size": [
+          14,
+          32
+        ],
+        "alpha": 0.9,
+        "colors": [
+          "#00f5d4",
+          "#ffbe0b",
+          "#ffffff",
+          "#fb5607"
+        ],
+        "area": [
+          0,
+          0.32
+        ],
+        "seed": 343
+      }
+    ]
+  }
+}

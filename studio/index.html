@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de" data-marke="imagicruise">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<!-- Das Studio lädt nichts von fremden Servern. Ausnahmen, nur auf Knopfdruck und nach Rückfrage: die Ortssuche bei OpenStreetMap, Infos zum Ort aus der Wikipedia und das Diktieren (Spracherkennung des Browsers).
+     Dazu die eigene Webseite imagicruise.de: Die Android-App liest dort einmal am Tag version.json (Baustein aktualisieren, abschaltbar unter „Über“). -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'self' https://nominatim.openstreetmap.org https://de.wikipedia.org https://imagicruise.de; frame-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#ffffff">
+<!--STUDIO-->
+<title>Imagicruise Studio</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="bausteine/design.css">
+<link rel="stylesheet" href="bausteine/foto-auswahl.css">
+<link rel="stylesheet" href="bausteine/aktualisieren.css">
+<link rel="stylesheet" href="bausteine/textfeld.css">
+<link rel="stylesheet" href="bausteine/ueber.css">
+<link rel="stylesheet" href="bausteine/menue.css">
+<link rel="stylesheet" href="bausteine/vorschau.css">
+<link rel="stylesheet" href="bausteine/video-zeitleiste.css">
+<link rel="stylesheet" href="studio.css">
+<!-- Vorhang bis zum Startbildschirm (Baustein zauberstab): sofort die richtige Hintergrundfarbe, nichts blitzt auf -->
+<script src="bausteine/zauberstab.js" data-vorhang="imagicruise"></script>
+</head>
+<body>
+<header class="kopf">
+  <!-- Vorn setzt der Baustein „menue“ Icon, Schriftzug und Untertitel (Name der Reise) ein, hinten den Knopf ⋮
+       (Rundgang, Design, Hilfe, Über, App installieren) – gleich in allen Apps -->
+  <span class="stand" id="stand" role="status" aria-live="polite"></span>
+</header>
+
+<main id="ansicht"><p class="lade">Imagicruise wird geladen …</p></main>
+<noscript><p class="lade">Imagicruise braucht JavaScript.</p></noscript>
+
+<!-- Ereignis bearbeiten -->
+<dialog class="blatt" id="blatt" aria-labelledby="blatt-titel"></dialog>
+<!-- Foto bearbeiten (bildbearbeitung.js) -->
+<dialog class="blatt bildfenster" id="bild" aria-labelledby="bild-titel"></dialog>
+<!-- KI-Hilfe: Frage für die eigene KI-App bauen, Antwort einfügen (kihilfe.js) -->
+<dialog class="blatt" id="hilfe" aria-labelledby="hilfe-titel"></dialog>
+<!-- Video zuschneiden (Baustein videoschnitt) -->
+<dialog class="blatt bildfenster" id="video" aria-labelledby="video-titel"></dialog>
+<!-- Als Status teilen (status.js, Baustein vorlagen) -->
+<dialog class="blatt bildfenster" id="status" aria-labelledby="status-titel"></dialog>
+<!-- Fenster „Neue Reise“ (Rückfragen selbst kommen aus dem Baustein design) -->
+<dialog class="frage" id="frage"></dialog>
+<!-- Vorschau des Reiseberichts -->
+<dialog class="vorschau" id="vorschau" aria-label="Vorschau des Reiseberichts">
+  <div class="vorschau-kopf">
+    <b>Vorschau</b>
+    <div class="umschalter" role="group" aria-label="Breite der Vorschau">
+      <button type="button" data-a="vorschau-breite" data-breite="handy">Handy</button>
+      <button type="button" data-a="vorschau-breite" data-breite="voll" class="an">Bildschirm</button>
+    </div>
+    <button type="button" class="ds-knopf ds-klein" data-a="vorschau-zu">Schließen</button>
+  </div>
+  <div class="vorschau-rahmen"><iframe id="vorschau-seite" title="Reisebericht" src="about:blank"></iframe></div>
+</dialog>
+<!-- Rundgang: erklärt beim ersten Besuch Schritt für Schritt die Ansicht (wie in Imagiclique) -->
+<dialog class="rundgang" id="rundgang" aria-labelledby="rg-titel"><div class="rg-licht"></div><div class="rg-blase"></div></dialog>
+<!-- Meldungen unten, Rückfragen und die Ladeanzeige legt der Baustein design (design.js) selbst an -->
+<!-- Hilfetext für die Seite „Hilfe“ im Menü ⋮ (Baustein menue). data-schritt: welcher Abschnitt beim Öffnen aufgeklappt ist
+     (1 Liste der Reisen, 2 Tage, 3 Reise, 4 Karte, 5 Fertigstellen; siehe hilfeSchritt() in studio.js). -->
+<template id="hilfetext">
+  <details data-schritt="1"><summary>Meine Reisen</summary><div class="im-in">
+    <p>Hier stehen alle deine Reisen. <b>„Neue Reise“</b> braucht nur einen Titel und den Zeitraum; für jeden Tag entsteht eine eigene Seite.</p>
+    <p>Zum Ausprobieren gibt es die <b>Beispielreise</b> durchs Mittelmeer. <b>„Reisepaket einlesen“</b> holt eine Reise von deinem anderen Gerät oder aus einer Sicherung.</p>
+    <p>Der <b>Rundgang</b> („Rundgang starten“ im Menü ⋮ oben rechts) zeigt dir jede Ansicht Schritt für Schritt.</p>
+  </div></details>
+  <details data-schritt="2"><summary>Tage und Ereignisse</summary><div class="im-in">
+    <p>Oben wählst du den <b>Tag</b>. Zu jedem Tag gehören ein Ort, ein paar Sätze und die <b>Ereignisse</b>: Sehenswürdigkeiten, Ausflüge, Essen und mehr.</p>
+    <p>Am schnellsten geht es mit <b>„Fotos zum Tag“</b>: Imagicruise bündelt die Fotos nach der Aufnahmezeit zu Ereignissen und übernimmt den Aufnahmeort für die Karte, wenn das Foto einen hat. Ein Ereignis öffnest du durch Antippen; gespeichert wird von selbst.</p>
+    <p><b>Reiseplan:</b> Trage schon vor der Reise ein, was ihr vorhabt, und wähle im Ereignis <b>„Als geplant markieren“</b>. Geplantes ist blasser und steht weder im Reisebericht noch auf der Karte. Unterwegs tippst du auf <b>„✓ Erlebt“</b>. Passen neue Fotos nach Uhrzeit und Ort, fragt Imagicruise, ob sie dazugehören – auch später noch, wenn das Ereignis schon abgehakt ist. Auch ein <b>ganzer Tag</b> lässt sich planen, etwa ein Hafen oder ein Seetag („Tag als geplant markieren“ beim Tag). Beim Abhaken fragt Imagicruise, ob auch die geplanten Ereignisse des Tages erlebt sind.</p>
+    <p><b>Ausgaben und Kilometer:</b> Beim Tag trägst du ein, was ihr ausgegeben habt. Darunter stehen die Kilometer des Tages, als Luftlinie zwischen den Orten. Die Summen findest du bei „Reise“, dort stellst du auch die Währung ein. Ausgaben eines geplanten Tages zählen erst, wenn du ihn abhakst. Die Ausgaben bleiben privat und stehen nicht im Reisebericht, die Kilometer schon.</p>
+    <p>Liegt ein Tag außerhalb des Zeitraums oder ist er falsch entstanden, entfernst du ihn mit <b>„Tag löschen“</b> bzw. <b>„Tag leeren“</b>.</p>
+  </div></details>
+  <details data-schritt="3"><summary>Fotos und Videos</summary><div class="im-in">
+    <p>Unter <b>„Reise“</b> wählst du alle Fotos der Reise auf einmal. Imagicruise verteilt sie nach dem Aufnahmedatum auf die Tage. Dort wählst du auch das <b>Titelbild</b>.</p>
+    <p>Unter jedem Foto: Bildtext, Reihenfolge, der Stift für die <b>Bildbearbeitung</b> (drehen, zuschneiden, begradigen, Licht, Wärme, Vignette, Filter) und der Stern für das Titelbild. Mit <b>„Übernehmen und auf die anderen Fotos übertragen“</b> bekommen alle Fotos des Ereignisses dieselben Farben und denselben Filter. Zuschnitt und Drehen bleiben bei jedem Foto.</p>
+    <p>Zu einem Ereignis passt ein <b>kurzes Video</b> von höchstens einer Minute. Den Ausschnitt wählst du auf der Leiste: Griff links für den Anfang, Griff rechts für das Ende, den hellen Bereich dazwischen ziehst du als Ganzes. Imagicruise verkleinert es. Unter <b>Tempo</b> wird es zur Zeitlupe (¼×, ½×) oder zum Zeitraffer (2×, 4×, 8×), dann ohne Ton. Fertig darf es höchstens eine Minute dauern. Im Zeitraffer darf der Ausschnitt deshalb länger sein.</p>
+    <p>Aufnahmeort und Kameradaten werden nur gelesen, um Tag, Uhrzeit und Position vorzuschlagen. In den gespeicherten Fotos stehen sie nicht.</p>
+  </div></details>
+  <details data-schritt="4"><summary>Die Karte</summary><div class="im-in">
+    <p>Die Karte zeigt jeden Tag und jedes Ereignis mit Position, verbunden in der Reihenfolge der Reise. Sie ist gezeichnet; es wird nichts aus dem Internet geladen.</p>
+    <p>Eine Position setzt du beim Tag oder beim Ereignis: über <b>„Position suchen“</b> (OpenStreetMap, nach Rückfrage), <b>„Mein Standort“</b> oder als Koordinaten.</p>
+    <p>Unter <b>„Strecken und Verkehrsmittel“</b> wählst du für jede Strecke, wie du dorthin gekommen bist: Schiff, Fähre, Flugzeug, Bahn, Bus, Auto, Wohnmobil, Motorrad, Fahrrad, zu Fuß oder Seilbahn. Ohne Wahl schätzt Imagicruise aus der Art der Reise und der Entfernung („Automatisch“). Jedes Verkehrsmittel hat auf der Karte seine eigene Linie und ein kleines Bild.</p>
+    <p><b>„▶ Route abspielen“</b> lässt die Route Strecke für Strecke wachsen, das Verkehrsmittel fährt mit. Denselben Knopf gibt es im Reisebericht unter der großen Karte.</p>
+    <p><b>Ort ohne Position:</b> Tippe beim Ort auf <b>„Auf der Karte antippen“</b> (oder in der Liste „Ohne Position“ unter der Karte). Dann tippst du auf der Karte an die richtige Stelle. Vorher heranzoomen macht es genauer.</p>
+    <p><b>Zoomen und Verschieben:</b> mit <b>+</b> und <b>−</b> an der Karte oder mit dem Mausrad, auf dem Handy mit zwei Fingern. Ziehen mit der Maus oder einem Finger verschiebt den Ausschnitt, <b>⤢</b> zeigt wieder die ganze Route. Ganz nah heran steht „Küsten und Orte hier nur ungefähr“ in der Karte: Die Kartendaten zeigen keine Straßen, und die Küste liegt dort oft einige hundert Meter daneben. Im Reisebericht muss man die Karte erst anklicken bzw. antippen, damit man die Seite weiter blättern kann.</p>
+    <p><b>„✋ Punkte verschieben“:</b> Liegt eine Marke nicht dort, wo sie hingehört, schalte das ein und ziehe sie mit Maus oder Finger an die richtige Stelle – am besten nach dem Heranzoomen. Die neue Position gilt für den Tag bzw. das Ereignis der Marke. <b>„↶ Rückgängig“</b> holt die alte Position zurück.</p>
+  </div></details>
+  <details data-schritt="5"><summary>Fertigstellen und Reisebericht</summary><div class="im-in">
+    <p>Die <b>Prüfliste</b> zeigt, was noch fehlt. Die <b>Vorschau</b> zeigt den Reisebericht als Handy oder als großen Bildschirm.</p>
+    <p><b>„Reisebericht speichern“</b> liefert eine kleine Webseite in einer ZIP-Datei zum Weitergeben oder Hochladen. Wer die Adresse kennt, kann den Bericht lesen; Suchmaschinen werden gebeten, ihn nicht aufzunehmen.</p>
+  </div></details>
+  <details data-schritt="6"><summary>Sicherung und zweites Gerät</summary><div class="im-in">
+    <p>Das <b>Reisepaket</b> (unter „Fertigstellen“) ist deine Sicherung und der Weg, eine Reise auf ein anderes Gerät zu bringen, z. B. vom Handy auf den PC. Speichere es zwischendurch immer wieder.</p>
+    <p>Liest du ein Reisepaket ein, das du schon hast, gleicht Imagicruise beide Fassungen ab: Neueres bleibt erhalten.</p>
+    <p><b>Android-App neu installieren:</b> Die Freigabe-Fassung der App lässt sich nicht über eine Test-Fassung installieren (Android meldet dann „App nicht installiert“). Speichere vorher jede Reise als Reisepaket, deinstalliere die alte App, installiere die neue und lies die Reisepakete wieder ein. Beim Deinstallieren gehen die Reisen in der App verloren.</p>
+  </div></details>
+  <details data-schritt="7"><summary>KI-Hilfe, Infos zum Ort, Diktieren</summary><div class="im-in">
+    <p><b>KI-Hilfe:</b> Imagicruise baut eine Frage für deine eigene KI-App (z. B. ChatGPT). Du kopierst oder teilst sie, fügst die Antwort ein und übernimmst, was passt. <b>Schneller am Handy:</b> In der KI-App die Antwort lange antippen, „Teilen“ und Imagicruise wählen – dann öffnet sich die KI-Hilfe beim richtigen Ereignis oder Tag mit dem Vorschlag (bis eine Stunde nach der Frage). Kommt nur ein Link zum Chat an, bitte die Antwort selbst teilen oder kopieren. Imagicruise selbst schickt nichts an eine KI.</p>
+    <p><b>Infos zum Ort:</b> schlägt in der Wikipedia nach, was in der Nähe liegt. Übertragen wird nur der Name oder die Position, nur auf Knopfdruck.</p>
+    <p><b>Diktieren:</b> schreibt mit, was du sprichst. Dafür nutzt der Browser seine Spracherkennung (bei Chrome verarbeitet Google das Gesprochene, bei Edge Microsoft).</p>
+  </div></details>
+  <details data-schritt="8"><summary>Als Status teilen</summary><div class="im-in">
+    <p>Aus einem Tag oder Ereignis wird ein Bild für WhatsApp oder Instagram. Die Knöpfe unter dem Bild (am PC daneben) sagen, was ein Tipp trifft: <b>„Fotos“</b> oder <b>„Sticker“</b>.</p>
+    <p><b>Fotos:</b> antippen, dann <b>„Ausschnitt“</b> verschieben und zoomen oder mit <b>„Tauschen“</b> zwei Fotos vertauschen.</p>
+    <p><b>„Anordnen“</b> gibt es bei Sofortbild, Pinwand und Album: Ziehen verschiebt das Foto samt Rahmen (auf der Pinwand auch Zettel und Karte), der gelbe Punkt ändert die Größe, der weiße Kreis dreht. <b>„Vorn“</b> und <b>„Hinten“</b> ändern, was obenauf liegt; <b>„Wieder automatisch“</b> stellt alles zurück.</p>
+    <p><b>Sticker:</b> unten antippen setzt einen aufs Bild. Dort bedienst du ihn genauso, <b>„✕ Entfernen“</b> nimmt ihn weg. Vorlage, gewählte Fotos, Ausschnitte, Anordnung und Sticker merkt sich Imagicruise je Tag und Ereignis, auch für das nächste Mal. <b>„↺ Neu beginnen“</b> fängt wieder von vorn an.</p>
+  </div></details>
+</template>
+<input type="file" id="datei-fotos" accept="image/*" multiple hidden>
+<input type="file" id="datei-video" accept="video/mp4,video/quicktime,.mp4,.mov,.m4v" hidden>
+<input type="file" id="datei-paket" accept=".zip,application/zip" hidden>
+
+<script src="../abspieler/arten.js"></script>
+<script src="../abspieler/karte.js"></script>
+<script src="../abspieler/weltkarte.js"></script>
+<script src="modell.js"></script>
+<script src="abgleich.js"></script>
+<script src="zip.js"></script>
+<script src="bausteine/foto-daten.js"></script>
+<script src="bausteine/foto-auswahl.js"></script>
+<script src="fotos.js"></script>
+<script src="paket.js"></script>
+<script src="bausteine/bild-bearbeitung.js"></script>
+<script src="bildbearbeitung.js"></script>
+<script src="bausteine/orts-info.js"></script>
+<script src="bausteine/ki-kern.js"></script>
+<script src="kihilfe.js"></script>
+<script src="bausteine/video-schnitt.js"></script>
+<script src="fassung.js"></script>
+<script src="bausteine/aktualisieren.js"></script>
+<script src="bausteine/design.js"></script>
+<script src="bausteine/textfeld.js"></script>
+<script src="bausteine/ueber.js"></script>
+<script src="bausteine/menue.js"></script>
+<script src="speicher.js"></script>
+<script src="bausteine/vorlagen.js"></script>
+<script src="bausteine/sticker.js"></script>
+<script src="bausteine/vorschau.js"></script>
+<script src="status.js"></script>
+<script src="studio.js"></script>
+</body>
+</html>

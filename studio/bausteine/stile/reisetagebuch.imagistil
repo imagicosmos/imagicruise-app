@@ -1,0 +1,54 @@
+{
+  "format": "imagistil",
+  "version": 1,
+  "id": "reisetagebuch",
+  "name": "Reisetagebuch",
+  "icon": "🧳",
+  "font": "schreibmaschine",
+  "desc": "Reisetagebuch: helles Papier mit dunkelbrauner Schrift und petrolblauem Akzent",
+  "colors": {
+    "bg1": "#f4ecd8",
+    "bg2": "#e2d3b3",
+    "fg": "#2f2a22",
+    "acc": "#1f6f80"
+  },
+  "deco": {
+    "back": [
+      {
+        "shape": "dot",
+        "n": 40,
+        "size": [
+          2,
+          6
+        ],
+        "alpha": 0.25,
+        "colors": [
+          "#8a7a5c"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 321
+      },
+      {
+        "shape": "star",
+        "n": 6,
+        "size": [
+          12,
+          22
+        ],
+        "alpha": 0.35,
+        "colors": [
+          "#1f6f80"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 322
+      }
+    ],
+    "photo": []
+  }
+}

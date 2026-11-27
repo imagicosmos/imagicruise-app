@@ -1,0 +1,372 @@
+/* =====================================================================
+   Imagicruise – Studio (PC und Handy, dieselbe Oberfläche)
+   Farben „Marine“ wie das Icon (imagicosmos/marke). Zuerst fürs Handy gebaut, ab 900 px breiter.
+   Lädt nichts von fremden Servern: Systemschrift, nur der Schriftzug im Kopf in Josefin Sans (aus dem Baustein „design“).
+   ===================================================================== */
+/* Farben, Ecken, Schatten und Schrift kommen aus dem Baustein „design“ (bausteine/design.css, <html data-marke="imagicruise">),
+   gleich in allen Apps; hier nur die Namen des Studios dafür. Hell oder Dunkel setzt der Baustein „menue“ (<html data-theme>).
+   Die Bausteine menue, fotoauswahl und aktualisieren lesen die Farben selbst aus „design“. */
+:root{
+  --grund:var(--ds-grund); --flaeche:var(--ds-flaeche); --flaeche-2:var(--ds-flaeche2); --text:var(--ds-text); --leise:var(--ds-leise);
+  --linie:var(--ds-linie); --feld-rand:var(--ds-feldrand);
+  --akzent:var(--ds-akzent); --akzent-2:var(--ds-akzent2); --akzent-hell:var(--ds-akzent-zart); --akzent-text:var(--ds-akzent-text);
+  --ok:var(--ds-ok); --ok-hell:var(--ds-ok-zart); --warn:var(--ds-warn); --warn-hell:var(--ds-warn-zart); --fehler:var(--ds-fehler); --fehler-hell:var(--ds-fehler-zart);
+  --ok-voll:var(--ds-voll-ok); --fehler-voll:var(--ds-voll-fehler);   /* Flächen mit weißer Schrift (Meldungen) */
+  --radius:var(--ds-radius); --radius-klein:var(--ds-radius-klein);
+  --schatten:var(--ds-schatten); --schatten-gross:var(--ds-schatten-gross);
+  --schrift:var(--ds-schrift);
+  /* nur im Studio: Karte, Sonne, Sterne, Kopf der Vorschau */
+  --sonne:#fbbf24; --meer:#dce4f9; --land:#fbf8ef; --kueste:#aab3d6; --route:#4338ca; --fluss:#9db3ec;
+  --kopf:#312e81; --stern-aus:#c5c9e2; --stern-an:#d97706;
+}
+/* Dunkles Design: nur die eigenen Farben des Studios; der Reisebericht selbst (Vorschau) bleibt hell. */
+html[data-theme="dark"]{
+  --meer:#1b2350; --land:#3a3d5e; --kueste:#4a5080; --route:#a5b4fc; --fluss:#3f5196;
+  --kopf:#1e1b4b; --stern-aus:#454a80; --stern-an:#fbbf24;
+}
+.im-menue{ z-index:40; } .im-seite{ z-index:45; }   /* über dem Kopf (z-index 30) */
+/* eigener Hilfetext auf der Seite „Hilfe“ */
+.im-hilfe-app ul{ margin:6px 0; padding-left:20px; } .im-hilfe-app p + p{ margin-top:8px; }
+*{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html{ -webkit-text-size-adjust:100%; }
+body{ margin:0; background:var(--grund); color:var(--text); font:16px/1.5 var(--schrift); min-height:100dvh; overflow-wrap:anywhere; }
+h1,h2,h3{ margin:0; line-height:1.2; }
+h1,h2{ font-family:var(--ds-schrift-titel); }   /* Überschriften in der Schrift der Marke, wie in allen Apps (Baustein design) */
+h1{ font-size:1.5rem; } h2{ font-size:1.15rem; } h3{ font-size:1rem; }
+p{ margin:0; }
+img{ max-width:100%; display:block; }
+button, input, select, textarea{ font:inherit; color:inherit; }
+button{ cursor:pointer; }
+:focus-visible{ outline:3px solid var(--akzent); outline-offset:2px; }
+[hidden]{ display:none !important; }
+.leise{ color:var(--leise); } .klein-text{ font-size:.86rem; }
+.lade{ padding:60px 20px; text-align:center; color:var(--leise); }
+
+/* ---------- Kopf ---------- */
+/* Leiste, Icon, Schriftzug und Untertitel gestaltet der Baustein „menue“ (im-kopfleiste), gleich in allen Apps */
+.kopf{ position:sticky; top:0; z-index:30; }
+.stand{ font-size:.8rem; color:var(--leise); white-space:nowrap; flex:none; }
+.stand.fehler{ background:var(--fehler-voll); color:#fff; padding:2px 8px; border-radius:999px; }
+
+/* ---------- Knöpfe und Felder ---------- */
+/* Knöpfe: Baustein „design“ (ds-knopf, ds-zweit, ds-gefahr, ds-klein), gleich in allen Apps */
+.knoepfe{ display:flex; flex-wrap:wrap; gap:8px; }
+.feld{ display:grid; gap:5px; }
+.feld > span, .feldname{ font-size:.86rem; font-weight:600; color:var(--leise); }
+.feld small{ color:var(--leise); font-size:.8rem; }
+input[type=text], input[type=date], input[type=time], input[type=search], select, textarea{ width:100%; min-height:44px; padding:9px 11px; border:1px solid var(--feld-rand); border-radius:var(--radius-klein); background:var(--flaeche); }
+textarea{ min-height:110px; resize:vertical; line-height:1.5; }
+textarea.gross{ min-height:160px; }
+/* Textfelder mit Diktieren und Leeren: Baustein „textfeld“ (bausteine/textfeld.css); hier nur der Abstand im Raster */
+.textfeld.tf{ min-width:0; margin:0; }
+.ki-frage summary{ cursor:pointer; color:var(--akzent-2); font-size:.9rem; padding:6px 0; }
+.ki-frage pre{ white-space:pre-wrap; overflow-wrap:anywhere; font:inherit; font-size:.86rem; background:var(--flaeche); border:1px solid var(--linie); border-radius:var(--radius-klein); padding:10px; margin:0; max-height:40dvh; overflow:auto; }
+.ki-kasten{ display:grid; gap:14px; }
+.ki-text{ white-space:pre-wrap; margin:0; background:var(--flaeche-2); border-radius:var(--radius-klein); padding:10px 12px; }
+.felder{ display:grid; gap:14px; }
+@media (min-width:640px){ .felder.zwei{ grid-template-columns:1fr 1fr; } .felder .breit{ grid-column:1 / -1; } }
+
+/* ---------- Seiten ---------- */
+.seite{ max-width:1060px; margin:0 auto; padding:18px 14px calc(40px + env(safe-area-inset-bottom)); display:grid; gap:18px; }
+.seitenkopf{ display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; }
+.kasten{ background:var(--flaeche); border:1px solid var(--linie); border-radius:var(--radius); padding:16px; box-shadow:var(--schatten); display:grid; gap:14px; }
+.kasten > h2{ display:flex; gap:8px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+.hinweis{ background:var(--akzent-hell); border-radius:var(--radius-klein); padding:10px 12px; font-size:.9rem; color:var(--akzent-2); }
+.kasten.geteilt{ border-color:var(--akzent); background:var(--akzent-hell); }
+.kasten.geteilt p{ margin:0; }
+/* Fotoauswahl (Baustein fotoauswahl, bausteine/foto-auswahl.css): nur die Farben von Imagicruise */
+/* Fotoauswahl (Baustein fotoauswahl): Farben aus dem Baustein „design“ */
+.fassung{ margin-top:28px; text-align:center; }
+/* Rundgang: ein Fenster über allem (auch über dem Ereignis-Blatt), das eine Stelle hervorhebt und erklärt */
+.rundgang{ position:fixed; inset:0; width:100vw; height:100dvh; max-width:none; max-height:none; margin:0; background:transparent; overflow:hidden; }
+.rundgang::backdrop{ background:transparent; }
+.rundgang.ohne-ziel{ background:rgba(15,13,45,.72); }
+.rg-licht{ position:absolute; border-radius:14px; border:2px solid var(--sonne); box-shadow:0 0 0 9999px rgba(15,13,45,.72); transition:all .25s; pointer-events:none; }
+.rundgang.ohne-ziel .rg-licht{ display:none; }
+.rg-blase{ position:absolute; left:14px; right:14px; max-width:532px; margin:0 auto; background:var(--flaeche); border-radius:16px; padding:16px; box-shadow:var(--schatten-gross); }
+.rg-blase h2{ margin:0 0 4px; font-size:1.05rem; }
+.rg-blase p{ margin:0; font-size:.94rem; line-height:1.5; color:var(--leise); }
+.rg-zeile{ display:flex; align-items:center; gap:8px; margin-top:12px; }
+.rg-punkte{ flex:1; display:flex; gap:5px; flex-wrap:wrap; }
+.rg-punkte i{ width:7px; height:7px; border-radius:50%; background:var(--linie); }
+.rg-punkte i.an{ background:var(--akzent); }
+@media (prefers-reduced-motion:reduce){ .rg-licht{ transition:none; } }
+.hinweis.warn{ background:var(--warn-hell); color:var(--warn); }
+
+/* Liste der Reisen */
+.reisen{ display:grid; gap:14px; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); }
+.reisekarte{ background:var(--flaeche); border:1px solid var(--linie); border-radius:var(--radius); overflow:hidden; text-align:left; padding:0; display:flex; flex-direction:column; box-shadow:var(--schatten); }
+.reisekarte:hover{ border-color:var(--akzent); }
+.reisekarte .bild{ aspect-ratio:16/9; background:linear-gradient(135deg,#1e1b4b,#4338ca 55%,#818cf8); display:grid; place-items:center; color:#fff; font-size:2.2rem; overflow:hidden; width:100%; }
+.reisekarte .bild img{ width:100%; height:100%; object-fit:cover; }
+.reisekarte .inhalt{ padding:12px 14px 14px; display:grid; gap:3px; }
+.reisekarte b{ font-size:1.08rem; }
+.leer-zustand{ text-align:center; padding:34px 18px; display:grid; gap:14px; justify-items:center; }
+.leer-zustand .gross{ font-size:3rem; line-height:1; }
+
+/* Reiter einer Reise */
+.reiter{ display:flex; gap:4px; background:var(--flaeche); border-bottom:1px solid var(--linie); padding:0 8px; overflow-x:auto; position:sticky; top:var(--kopfhoehe, calc(50px + env(safe-area-inset-top))); z-index:20; }
+.reiter a{ padding:12px 14px; color:var(--leise); text-decoration:none; font-weight:600; border-bottom:3px solid transparent; white-space:nowrap; }
+.reiter a[aria-current]{ color:var(--akzent-2); border-bottom-color:var(--akzent); }
+.reiter .zurueck{ color:var(--akzent-2); }
+
+/* Tagesleiste */
+.tagesleiste{ display:flex; gap:8px; overflow-x:auto; padding:2px 2px 8px; scrollbar-width:thin; scrollbar-color:var(--linie) transparent; }
+.tagesleiste button{ flex:none; background:var(--flaeche); border:1px solid var(--linie); border-radius:var(--radius-klein); padding:7px 12px; display:grid; gap:1px; text-align:left; min-width:92px; position:relative; }
+.tagesleiste button b{ font-size:.78rem; color:var(--akzent); text-transform:uppercase; letter-spacing:.06em; }
+.tagesleiste button span{ font-size:.86rem; white-space:nowrap; max-width:150px; overflow:hidden; text-overflow:ellipsis; }
+.tagesleiste button.an{ background:var(--akzent); border-color:var(--akzent); color:var(--akzent-text); }
+.tagesleiste button.an b{ color:inherit; opacity:.8; }
+.tagesleiste button.voll::after{ content:""; position:absolute; top:7px; right:8px; width:8px; height:8px; border-radius:50%; background:var(--sonne); }
+.tagkopf{ display:flex; gap:10px; align-items:center; justify-content:space-between; }
+.tagkopf .nr{ font-size:.8rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--akzent); }
+.rund{ width:44px; height:44px; border-radius:50%; border:1px solid var(--feld-rand); background:var(--flaeche); font-size:1.2rem; flex:none; }
+.rund:disabled{ opacity:.35; }
+
+/* Ortsfeld */
+.ortfeld{ display:grid; gap:8px; }
+.ort-zeile{ display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+.ort-pos{ background:var(--ok-hell); color:var(--ok); border-radius:999px; padding:4px 6px 4px 12px; font-size:.86rem; display:inline-flex; gap:6px; align-items:center; }
+.ort-pos button{ border:0; background:transparent; font-size:1.1rem; line-height:1; padding:2px 6px; color:inherit; }
+.ort-ohne{ font-size:.86rem; color:var(--leise); }
+.treffer{ display:grid; gap:6px; }
+.treffer button{ text-align:left; background:var(--flaeche-2); border:1px solid var(--linie); border-radius:var(--radius-klein); padding:8px 10px; font-size:.9rem; }
+.treffer button:hover{ border-color:var(--akzent); }
+.ortsinfo{ display:grid; gap:4px; background:var(--flaeche); border:1px solid var(--linie); border-radius:var(--radius-klein); padding:10px 12px; }
+.ortsinfo p{ margin:0; font-size:.92rem; line-height:1.45; }
+.ortsinfo .ds-knopf{ justify-self:start; text-align:center; margin-top:4px; }
+
+/* Ereignisse */
+.ereignisse{ list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+.ereignis{ display:grid; grid-template-columns:44px minmax(0,1fr); gap:12px; background:var(--flaeche-2); border:1px solid var(--linie); border-radius:var(--radius-klein); padding:12px; text-align:left; width:100%; }
+.ereignis:hover{ border-color:var(--akzent); }
+.ereignis .zeichen{ width:44px; height:44px; border-radius:50%; background:var(--flaeche); border:2px solid var(--akzent); display:grid; place-items:center; font-size:1.2rem; }
+.ereignis .kopfzeile{ display:flex; gap:8px; flex-wrap:wrap; align-items:baseline; font-size:.84rem; color:var(--leise); }
+.ereignis .kopfzeile b{ color:var(--akzent); }
+.ereignis .titel{ font-weight:700; font-size:1.05rem; display:block; }
+.ereignis .titel.fehlt{ color:var(--warn); font-weight:600; font-style:italic; }
+.ereignis .auszug{ color:var(--leise); font-size:.9rem; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+/* Reiseplan: Geplantes blasser, mit Knopf zum Abhaken (nur Flächen und Zeichen blasser, der Text bleibt lesbar) */
+.ereignis.geplant{ background:transparent; border-style:dashed; }
+.ereignis.geplant .zeichen{ border-style:dashed; opacity:.6; }
+.ereignis.geplant .titel{ font-weight:600; color:var(--leise); }
+.planmarke{ border:1px dashed var(--leise); border-radius:99px; padding:0 8px; }
+.ereignisse .ds-knopf.erlebt-knopf{ margin-top:6px; min-height:44px; }
+.planfeld{ display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+.planfeld > span{ flex:1 1 180px; }
+.planfeld .ds-knopf.ds-klein{ min-height:44px; }
+.streifen{ display:flex; gap:6px; margin-top:8px; overflow:hidden; }
+.streifen img{ width:54px; height:54px; object-fit:cover; border-radius:6px; background:var(--linie); flex:none; }
+.streifen .mehr{ align-self:center; font-size:.84rem; color:var(--leise); }
+
+/* Blatt: Ereignis bearbeiten */
+dialog{ border:0; padding:0; color:var(--text); }
+dialog::backdrop{ background:rgba(15,13,45,.5); }
+.blatt{ width:min(720px,100vw); max-width:100vw; height:100dvh; max-height:100dvh; margin:0 0 0 auto; background:var(--grund); box-shadow:var(--schatten-gross); }
+.blatt[open]{ display:flex; flex-direction:column; }
+.blatt-kopf{ display:flex; align-items:center; gap:10px; padding:calc(10px + env(safe-area-inset-top)) 14px 10px; background:var(--flaeche); border-bottom:1px solid var(--linie); }
+.blatt-kopf h2{ flex:1; }
+#blatt-titel:focus{ outline:none; }
+.blatt-inhalt{ flex:1; overflow-y:auto; padding:16px 14px; display:grid; gap:16px; align-content:start; }
+.blatt-fuss{ display:flex; gap:8px; justify-content:space-between; padding:10px 14px calc(10px + env(safe-area-inset-bottom)); background:var(--flaeche); border-top:1px solid var(--linie); }
+.arten{ display:flex; flex-wrap:wrap; gap:6px; }
+.arten button{ border:1px solid var(--feld-rand); background:var(--flaeche); border-radius:999px; padding:7px 12px; font-size:.9rem; min-height:40px; }
+.arten button.an{ background:var(--akzent); border-color:var(--akzent); color:var(--akzent-text); }
+.sterne-wahl{ display:flex; gap:2px; align-items:center; }
+.sterne-wahl button{ border:0; background:transparent; font-size:1.9rem; line-height:1; padding:2px 4px; color:var(--stern-aus); }
+.sterne-wahl button.an{ color:var(--stern-an); }
+.fotoliste{ display:grid; gap:10px; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); }
+.fotokarte{ background:var(--flaeche); border:1px solid var(--linie); border-radius:var(--radius-klein); overflow:hidden; display:grid; }
+.fotokarte img{ width:100%; aspect-ratio:4/3; object-fit:cover; background:var(--linie); }
+.fotokarte input{ border:0; border-top:1px solid var(--linie); border-radius:0; min-height:38px; font-size:.86rem; }
+.fotokarte .leiste{ display:flex; border-top:1px solid var(--linie); }
+.fotokarte .leiste button{ flex:1; min-width:0; padding:0; border:0; background:var(--flaeche); min-height:38px; font-size:.95rem; border-right:1px solid var(--linie); }
+.fotokarte .leiste button:last-child{ border-right:0; }
+.fotokarte .leiste button.an{ background:var(--sonne); }
+.fotokarte.video{ position:relative; }
+.videomarke{ position:absolute; left:6px; top:6px; z-index:1; background:rgba(8,8,22,.78); color:#fff; border-radius:999px; padding:3px 10px; font-size:.8rem; font-weight:600; }
+#vd-bild{ display:block; max-width:100%; max-height:46dvh; width:auto; height:auto; }
+.vd-info{ margin:0; font-weight:600; }
+/* Zeitleiste „Video zuschneiden“: aus dem Baustein videoschnitt (bausteine/video-zeitleiste.css) */
+.vd-zeiten{ display:flex; justify-content:space-between; gap:12px; font-size:.9rem; font-weight:600; margin-top:-4px; }
+.fotokarte .leiste button.bearbeitet{ background:var(--akzent-hell); color:var(--akzent-2); font-weight:700; }
+/* Foto bearbeiten */
+.bildfenster{ width:min(820px,100vw); }
+/* Als Status teilen: Vorschau links (am Handy oben), Auswahl daneben */
+.st-inhalt{ flex:1; overflow-y:auto; padding:14px; display:grid; gap:16px; grid-template-columns:minmax(150px, 34%) 1fr; align-items:start; }
+.st-buehne canvas{ width:100%; height:auto; display:block; border-radius:12px; box-shadow:var(--schatten); background:var(--flaeche-2); }
+.st-wahl{ display:grid; gap:14px; }
+.st-stile{ display:flex; flex-wrap:wrap; gap:8px; }
+.st-stile button{ width:40px; height:40px; border-radius:50%; border:2px solid var(--linie); font-size:1.1rem; line-height:1; padding:0; color:#fff; }
+.st-stile button.an{ border-color:var(--akzent); box-shadow:0 0 0 3px var(--akzent-hell); }
+.st-fotos{ display:flex; flex-wrap:wrap; gap:8px; }
+.st-fotos button{ width:64px; height:64px; padding:0; border:3px solid transparent; border-radius:10px; overflow:hidden; background:var(--linie); opacity:.55; }
+.st-fotos button.an{ border-color:var(--akzent); opacity:1; }
+.st-fotos img{ width:100%; height:100%; object-fit:cover; display:block; }
+.st-logo{ display:flex; gap:10px; align-items:flex-start; } .st-logo small{ display:block; color:var(--leise); }
+.blatt-fuss .knoepfe{ display:flex; gap:8px; }
+@media (max-width:640px){ .st-inhalt{ grid-template-columns:1fr; } .st-buehne{ width:min(260px, 72%); justify-self:center; } }
+.bb-inhalt{ flex:1; overflow-y:auto; padding:14px; display:grid; gap:14px; align-content:start; }
+.bb-buehne{ display:flex; justify-content:center; background:#15182c; border-radius:var(--radius-klein); padding:10px; }
+.bb-rahmen{ position:relative; touch-action:none; line-height:0; max-width:100%; }
+.bb-rahmen canvas{ display:block; max-width:100%; max-height:52dvh; width:auto; height:auto; }
+.bb-ausschnitt{ position:absolute; box-sizing:border-box; border:2px solid #fff; box-shadow:0 0 0 9999px rgba(10,10,30,.55); cursor:move;
+  background:linear-gradient(to right, transparent 33.2%, rgba(255,255,255,.45) 33.2%, rgba(255,255,255,.45) 33.5%, transparent 33.5%, transparent 66.5%, rgba(255,255,255,.45) 66.5%, rgba(255,255,255,.45) 66.8%, transparent 66.8%),
+    linear-gradient(to bottom, transparent 33.2%, rgba(255,255,255,.45) 33.2%, rgba(255,255,255,.45) 33.5%, transparent 33.5%, transparent 66.5%, rgba(255,255,255,.45) 66.5%, rgba(255,255,255,.45) 66.8%, transparent 66.8%); }
+.bb-ausschnitt[hidden]{ display:none; }
+.bb-rahmen{ overflow:hidden; }
+.bb-ausschnitt i{ position:absolute; width:30px; height:30px; border:5px solid var(--sonne); }
+.bb-ausschnitt i[data-h=nw]{ left:-2px; top:-2px; border-right:0; border-bottom:0; cursor:nwse-resize; }
+.bb-ausschnitt i[data-h=ne]{ right:-2px; top:-2px; border-left:0; border-bottom:0; cursor:nesw-resize; }
+.bb-ausschnitt i[data-h=sw]{ left:-2px; bottom:-2px; border-right:0; border-top:0; cursor:nesw-resize; }
+.bb-ausschnitt i[data-h=se]{ right:-2px; bottom:-2px; border-left:0; border-top:0; cursor:nwse-resize; }
+.bb-werkzeuge{ justify-self:start; }
+#bb-schnitt, #bb-licht{ display:grid; gap:12px; }
+#bb-schnitt[hidden], #bb-licht[hidden], #bb-regler[hidden], .bb-filter[hidden]{ display:none; }
+#bb-regler{ display:grid; gap:12px; }
+#bb-auto{ justify-self:start; }
+#bb-auto.an{ background:var(--akzent); color:var(--akzent-text); border-color:var(--akzent); }
+#bb-regler input[type=range], .bb-regler input[type=range]{ width:100%; min-height:36px; accent-color:var(--akzent); }
+.bb-regler{ display:grid; gap:12px; }
+.bb-weiter{ display:grid; gap:6px; border-top:1px solid var(--linie); padding-top:12px; }
+.bb-weiter[hidden]{ display:none; }
+.bb-weiter .ds-knopf{ justify-self:start; }
+.bb-filter{ display:grid; grid-template-columns:repeat(auto-fill,minmax(104px,1fr)); gap:8px; }
+.bb-filter button{ display:grid; gap:4px; padding:5px; border:2px solid var(--linie); border-radius:var(--radius-klein); background:var(--flaeche); font-size:.82rem; }
+.bb-filter button.an{ border-color:var(--akzent); }
+.bb-filter canvas{ width:100%; height:auto; border-radius:5px; }
+.fotokarte .leiste button:disabled{ opacity:.3; }
+
+/* Frage */
+.frage{ width:min(440px,calc(100vw - 28px)); border-radius:var(--radius); box-shadow:var(--schatten-gross); background:var(--flaeche); }
+.frage form, .frage .inhalt{ padding:18px; display:grid; gap:14px; }
+.frage .knoepfe{ justify-content:flex-end; }
+
+/* Titelbild-Wahl */
+.bildwahl{ display:grid; gap:8px; grid-template-columns:repeat(auto-fill,minmax(96px,1fr)); }
+.bildwahl button{ padding:0; border:3px solid transparent; border-radius:var(--radius-klein); overflow:hidden; background:var(--linie); aspect-ratio:4/3; }
+.bildwahl button.an{ border-color:var(--sonne); box-shadow:0 0 0 2px var(--akzent-2); }
+.bildwahl img{ width:100%; height:100%; object-fit:cover; }
+
+/* Karte (Klassen aus abspieler/karte.js) */
+.karte{ border:1px solid var(--linie); border-radius:var(--radius-klein); overflow:hidden; background:var(--meer); }
+.ik-karte{ display:block; width:100%; height:auto; }
+.ik-meer{ fill:var(--meer); }
+.ik-land{ fill:var(--land); stroke:var(--kueste); stroke-width:.8; stroke-linejoin:round; }
+/* Kartendaten 1:10 Mio.: Seen, Flüsse, Ländergrenzen, Orte (karte.js) */
+.ik-see{ fill:var(--meer); stroke:var(--kueste); stroke-width:.6; }
+.ik-fluss{ stroke:var(--fluss, #93a9e6); stroke-width:1.1; stroke-linecap:round; stroke-linejoin:round; }
+.ik-grenze{ stroke:var(--kueste); stroke-width:.8; stroke-dasharray:4 3; opacity:.8; }
+.ik-ort circle{ fill:var(--leise); }
+.ik-ort text{ font:11px var(--schrift); fill:var(--leise); paint-order:stroke; stroke:var(--land); stroke-width:3px; stroke-linejoin:round; }
+.ik-ort.ik-gross text{ font-weight:600; fill:var(--text); }
+.ik-route{ stroke:var(--route); stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; opacity:.8; }
+/* Linie je Verkehrsmittel (arten.js: linie) */
+.ik-l-wasser{ stroke-dasharray:8 6; }
+.ik-l-luft{ stroke-dasharray:3 6; }
+.ik-l-rad{ stroke-dasharray:7 3 1.5 3; }
+.ik-l-fuss{ stroke-dasharray:.1 5.5; stroke-width:3.2; }
+.ik-l-seil{ stroke-width:1.6; stroke-dasharray:12 2.5; }
+.ik-schwellen{ stroke:var(--route); stroke-width:7; stroke-dasharray:1.4 8; opacity:.8; }
+.ik-route.ik-heute{ stroke-width:3.6; opacity:1; }
+.ik-route.ik-leise{ opacity:.4; }
+.ik-symbol circle, .ik-fahrzeug circle{ fill:var(--flaeche); stroke:var(--route); stroke-width:1.4; }
+.ik-symbol path, .ik-fahrzeug path{ fill:var(--route); }
+.ik-symbol.ik-leise{ opacity:.5; }
+.ik-fahrzeug circle{ stroke-width:2.2; }
+/* Route abspielen (karte.js: abspielen) */
+.ik-punkt, .ik-name{ transition:opacity .35s; }
+.ik-verborgen{ opacity:0; }
+.ik-spielt .ik-symbol{ display:none; }
+/* Zoomen und Verschieben (karte.js: bedienen) */
+.karte.ik-beweglich{ position:relative; }
+.ik-beweglich .ik-karte{ touch-action:pan-y; cursor:grab; user-select:none; -webkit-user-select:none; }
+.ik-beweglich.ik-aktiv-karte .ik-karte{ touch-action:none; }
+.ik-beweglich.ik-aktiv-karte{ outline:2px solid var(--route); outline-offset:-2px; }
+.ik-zoom{ position:absolute; right:8px; top:8px; display:flex; flex-direction:column; gap:6px; }
+.ik-zoom button{ width:38px; height:38px; border-radius:10px; border:1px solid var(--linie); background:var(--flaeche); color:var(--text); font:600 20px/1 var(--schrift); display:grid; place-items:center; padding:0; box-shadow:0 1px 3px rgba(0,0,0,.15); cursor:pointer; }
+.ik-zoom button:hover{ border-color:var(--route); }
+.ik-tipp{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); max-width:80%; padding:10px 14px; border-radius:10px; background:rgba(20,24,48,.82); color:#fff; font:600 14px/1.35 var(--schrift); text-align:center; pointer-events:none; }
+.ik-tipp[hidden]{ display:none; }
+.ik-ungenau{ font:italic 11px var(--schrift); fill:var(--leise); paint-order:stroke; stroke:var(--land); stroke-width:3px; }
+.ik-beweglich.ik-aktiv-karte.ik-sofort{ outline:none; }
+.ik-zoom button:focus-visible{ outline:2px solid var(--route); outline-offset:2px; }
+/* Routenpunkte verschieben (Studio) */
+.ik-ziehen .ik-karte{ touch-action:none; }
+.ik-ziehbar{ cursor:move; }
+.ik-ziehbar circle{ stroke:var(--sonne, #fbbf24); stroke-width:3; }
+.ik-ziehbar.ik-zieht circle{ filter:drop-shadow(0 2px 4px rgba(0,0,0,.35)); }
+.ik-punkt circle{ fill:var(--akzent); stroke:var(--flaeche); stroke-width:2.2; }
+.ik-punkt text{ fill:var(--akzent-text); font:700 11px var(--schrift); text-anchor:middle; }
+.ik-name{ font:600 12.5px var(--schrift); fill:var(--text); paint-order:stroke; stroke:var(--land); stroke-width:3.5px; }
+.ik-massstab path{ stroke:var(--leise); stroke-width:1.4; }
+.ik-massstab text{ font:11px var(--schrift); fill:var(--leise); text-anchor:middle; }
+.stationen{ margin:0; padding-left:0; list-style:none; display:grid; gap:4px; font-size:.92rem; }
+.stationen b{ display:inline-block; min-width:54px; color:var(--akzent); }
+.st-sticker{ display:flex; flex-wrap:wrap; gap:6px; }
+.st-anlaesse{ margin-bottom:8px; }
+.st-kachel{ width:52px; height:52px; padding:2px; border:2px solid var(--linie); border-radius:10px; background:var(--flaeche-2); cursor:pointer; }
+.st-kachel canvas{ width:100%; height:100%; display:block; }
+.st-kachel:hover, .st-kachel:focus-visible{ border-color:var(--akzent); }
+.st-weiter{ margin:4px 0 10px; padding:10px 12px; border:1px dashed var(--linie); border-radius:var(--radius-klein); }
+.st-weiter p{ margin:0 0 8px; }
+.strecken-titel{ margin:18px 0 4px; font-size:1rem; }
+.strecken{ margin:8px 0 0; padding:0; list-style:none; display:grid; gap:8px; }
+.strecken li{ display:flex; flex-wrap:wrap; align-items:center; gap:6px 12px; justify-content:space-between; padding:8px 10px; border:1px solid var(--linie); border-radius:var(--radius-klein); background:var(--flaeche); }
+.strecken label{ flex:1 1 220px; font-size:.92rem; }
+.strecken b{ color:var(--akzent); margin-right:4px; }
+.strecken select{ flex:0 1 240px; min-width:200px; min-height:40px; }
+
+/* Prüfliste */
+.pruefliste{ list-style:none; margin:0; padding:0; display:grid; gap:6px; }
+.pruefliste li{ display:flex; gap:10px; align-items:flex-start; padding:8px 10px; border-radius:var(--radius-klein); background:var(--flaeche-2); font-size:.92rem; }
+.pruefliste li::before{ content:"ℹ"; font-weight:700; width:20px; text-align:center; flex:none; }
+.pruefliste li.fehler{ background:var(--fehler-hell); color:var(--fehler); } .pruefliste li.fehler::before{ content:"✕"; }
+.pruefliste li.warnung{ background:var(--warn-hell); color:var(--warn); } .pruefliste li.warnung::before{ content:"!"; }
+.pruefliste li.gut{ background:var(--ok-hell); color:var(--ok); } .pruefliste li.gut::before{ content:"✓"; }
+.pruefliste a{ color:inherit; margin-left:auto; white-space:nowrap; }
+.pfad{ font-family:Consolas,"Cascadia Mono",monospace; font-size:.84rem; background:var(--flaeche-2); padding:8px 10px; border-radius:var(--radius-klein); word-break:break-all; }
+ol.schritte{ margin:0; padding-left:1.3em; display:grid; gap:4px; font-size:.92rem; }
+
+/* Vorschau */
+.vorschau{ width:100vw; height:100dvh; max-width:none; max-height:none; margin:0; background:#1b1d33; }
+.vorschau[open]{ display:flex; flex-direction:column; }
+.vorschau-kopf{ display:flex; gap:10px; align-items:center; justify-content:space-between; padding:calc(8px + env(safe-area-inset-top)) 12px 8px; background:var(--kopf); color:#fff; }
+.umschalter{ display:flex; border:1px solid rgba(255,255,255,.5); border-radius:999px; overflow:hidden; }
+.umschalter button{ border:0; background:transparent; color:#fff; padding:6px 14px; font-size:.86rem; }
+.umschalter button.an{ background:#fff; color:var(--kopf); font-weight:600; }
+.vorschau-rahmen{ flex:1; display:flex; justify-content:center; min-height:0; }
+.vorschau-rahmen iframe{ border:0; width:100%; height:100%; background:#fff; }
+.vorschau-rahmen.handy iframe{ width:412px; max-width:100%; margin:14px 0; height:calc(100% - 28px); border-radius:22px; box-shadow:0 0 0 8px #0b0c1a; }
+@media (max-width:700px){ .umschalter{ display:none; } }
+
+/* Fortschritt und Meldungen: Baustein „design“ (design.js) */
+
+@media (min-width:900px){
+  .seite{ padding:26px 24px 60px; gap:22px; }
+  .kasten{ padding:20px; }
+  .tag-raster{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,6fr); gap:22px; align-items:start; }
+}
+@media (max-width:899px){ .tag-raster{ display:grid; gap:18px; } .blatt{ width:100vw; } }
+
+/* Status-Blatt: in der App vier Knöpfe – auf schmalen Handys umbrechen */
+#status .blatt-fuss{ flex-wrap:wrap; }
+#status .blatt-fuss .knoepfe{ flex-wrap:wrap; justify-content:flex-end; margin-left:auto; }
+@media (max-width:640px){   /* Handy: Hauptknopf oben über die ganze Breite, die übrigen gleich breit darunter */
+  #status .blatt-fuss .knoepfe{ display:contents; }
+  #status .blatt-fuss .ds-knopf{ flex:1 1 0; min-width:min-content; padding-inline:8px; white-space:nowrap; overflow-wrap:normal; }
+  #status .blatt-fuss #st-direkt{ order:-1; flex-basis:100%; }
+}
+
+.st-gemerkt{ display:grid; gap:6px; justify-items:start; }
+.st-gemerkt[hidden]{ display:none; }
+
+/* Auftrag 42: geplante Tage, Kennzahlen des Tages, Ort auf der Karte antippen */
+.tagesleiste button.geplant{ border-style:dashed; }
+.tagesleiste button .planmarke{ font-size:.7rem; }
+.tag-zahlen, .reise-zahlen{ margin:10px 0 0; color:var(--ds-text2); }
+#tag-plan{ margin-top:12px; }
+.ort-tippen{ display:flex; flex-wrap:wrap; gap:8px 12px; align-items:center; justify-content:space-between; }
+.karte.ik-tippen, .ik-tippen svg.ik-karte{ cursor:crosshair; }
+.ohne-position li{ display:flex; flex-wrap:wrap; gap:6px 10px; align-items:center; margin:4px 0; }
+.ohne-position .ds-knopf.ds-klein{ min-height:44px; }

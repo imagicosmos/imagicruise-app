@@ -1,0 +1,141 @@
+/* Baustein „design“ – gemeinsame Farben, Abstände und die Schrift der Marke für alle Apps von Imagicosmos.
+   Quelle: Repo imagicosmos/bausteine, design/design.css. VERSION = "1.2.1"
+   In den Apps eine Kopie: NICHT VON HAND ÄNDERN, Änderungen im Repo bausteine machen und neu einbauen.
+
+   Benutzen: als erstes Stylesheet einbinden und am <html> sagen, welche App es ist:
+     <html lang="de" data-marke="imagiclique">   …   <link rel="stylesheet" href="bausteine/design.css">
+   Hell oder Dunkel: <html data-theme="dark"> (setzt der Baustein „menue“). Ohne data-theme gilt Hell.
+   Alle Werte sind CSS-Variablen mit --ds-…; die App benutzt nur diese (oder leitet ihre eigenen Namen davon ab).
+   Die anderen Bausteine (menue, fotoauswahl, aktualisieren) lesen sie von selbst.
+   Ab 1.1.0 auch die gemeinsamen Bedienteile (unten): Knöpfe (.ds-knopf) sowie Meldung, Rückfrage und Ladeanzeige
+   (gestaltet hier, gesteuert von design.js: ImagicosmosDesign.melden / fragen / arbeit).
+
+   Grautöne, Abstände, Ecken und Schatten sind in allen Apps gleich. Je App verschieden sind nur
+   Akzentfarbe und Farbverlauf des Schriftzugs (wie das Logo der jeweiligen Webseite, imagicosmos/marke). */
+
+/* Schrift des Schriftzugs: Josefin Sans 700 (SIL Open Font License 1.1, Text in OFL-josefin-sans.txt) */
+@font-face{ font-family:"Josefin Sans"; font-style:normal; font-weight:700; font-display:swap;
+  src:url("josefin-sans-latin-700-normal.woff2") format("woff2"); }
+
+/* ---------- Gleich in allen Apps: Hell ---------- */
+:root{
+  --ds-grund:#f4f5f7; --ds-flaeche:#ffffff; --ds-flaeche2:#eceef2; --ds-linie:#d9dce3; --ds-feldrand:#b4b9c4;
+  --ds-text:#16191f; --ds-text2:#3a3f4b; --ds-leise:#596070;
+  --ds-ok:#15803d; --ds-ok-zart:#dcfce7; --ds-warn:#92400e; --ds-warn-zart:#fef3c7; --ds-fehler:#b91c1c; --ds-fehler-zart:#fee2e2;
+  --ds-voll-ok:#15803d; --ds-voll-fehler:#b91c1c;      /* Flächen mit weißer Schrift (Meldungen), auch im Dunkeln kräftig */
+  --ds-radius:14px; --ds-radius-klein:9px; --ds-radius-rund:999px;
+  --ds-abstand-1:4px; --ds-abstand-2:8px; --ds-abstand-3:12px; --ds-abstand-4:16px; --ds-abstand-5:24px; --ds-abstand-6:32px;
+  --ds-schatten:0 1px 2px rgba(16,18,24,.06), 0 6px 20px rgba(16,18,24,.08);
+  --ds-schatten-gross:0 12px 32px rgba(16,18,24,.18);
+  --ds-druck:brightness(.94);                             /* Wirkung beim Antippen */
+  --ds-schrift:"Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ds-schrift-marke:"Josefin Sans", var(--ds-schrift);
+  --ds-schrift-titel:"Josefin Sans", var(--ds-schrift);  /* Überschriften (h1, h2) in der Schrift der Marke */
+  --ds-schrift-mono:Consolas, "Cascadia Mono", "Courier New", monospace;
+  color-scheme:light;
+}
+/* ---------- Gleich in allen Apps: Dunkel ---------- */
+:root[data-theme=dark]{
+  --ds-grund:#0f1115; --ds-flaeche:#171a20; --ds-flaeche2:#20242c; --ds-linie:#2d323c; --ds-feldrand:#4a5160;
+  --ds-text:#eceef2; --ds-text2:#c8ccd5; --ds-leise:#9aa1ae;
+  --ds-ok:#4ade80; --ds-ok-zart:#12331f; --ds-warn:#fbbf24; --ds-warn-zart:#3a2c0a; --ds-fehler:#f87171; --ds-fehler-zart:#3b1515;
+  --ds-schatten:0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.35);
+  --ds-schatten-gross:0 12px 32px rgba(0,0,0,.45);
+  --ds-druck:brightness(1.25);
+  color-scheme:dark;
+}
+
+/* ---------- Je App: Akzent und Schriftzug (--ds-marke2 → --ds-marke3 = Farbverlauf des farbigen Teils) ----------
+   --ds-akzent: Knöpfe, Links, Auswahl · --ds-akzent2: kräftiger (Text in Akzentfarbe, Hover) · --ds-akzent-zart: Hintergrund
+   von Auswahl und Hinweisen · --ds-akzent-text: Schrift auf --ds-akzent.
+   Ohne data-marke gilt Imagicosmos (Nachtviolett). */
+:root, :root[data-marke=imagicosmos]{
+  --ds-akzent:#6d28d9; --ds-akzent2:#5b21b6; --ds-akzent-zart:#ede9fe; --ds-akzent-text:#ffffff; --ds-marke2:#6d28d9; --ds-marke3:#7c3aed; }
+:root[data-theme=dark], :root[data-marke=imagicosmos][data-theme=dark]{
+  --ds-akzent:#a78bfa; --ds-akzent2:#c4b5fd; --ds-akzent-zart:#2a1f4a; --ds-akzent-text:#120a24; --ds-marke2:#a78bfa; --ds-marke3:#c4b5fd; }
+
+:root[data-marke=imagichron]{          /* Bernstein */
+  --ds-akzent:#c2410c; --ds-akzent2:#9a3412; --ds-akzent-zart:#ffe8db; --ds-akzent-text:#ffffff; --ds-marke2:#c9460b; --ds-marke3:#e8590c; }
+:root[data-marke=imagichron][data-theme=dark]{
+  --ds-akzent:#fb923c; --ds-akzent2:#fdba74; --ds-akzent-zart:#3a1d0b; --ds-akzent-text:#1c0d03; --ds-marke2:#f59e0b; --ds-marke3:#fbbf24; }
+
+:root[data-marke=imagicoll]{           /* Petrol */
+  --ds-akzent:#0e7490; --ds-akzent2:#155e75; --ds-akzent-zart:#d7f1f6; --ds-akzent-text:#ffffff; --ds-marke2:#0e7490; --ds-marke3:#0891b2; }
+:root[data-marke=imagicoll][data-theme=dark]{
+  --ds-akzent:#22d3ee; --ds-akzent2:#67e8f9; --ds-akzent-zart:#0b2f38; --ds-akzent-text:#04161b; --ds-marke2:#22d3ee; --ds-marke3:#67e8f9; }
+
+:root[data-marke=imagiclique]{         /* Grün */
+  --ds-akzent:#15803d; --ds-akzent2:#166534; --ds-akzent-zart:#d9f5e3; --ds-akzent-text:#ffffff; --ds-marke2:#15803d; --ds-marke3:#16a34a; }
+:root[data-marke=imagiclique][data-theme=dark]{
+  --ds-akzent:#4ade80; --ds-akzent2:#86efac; --ds-akzent-zart:#12331f; --ds-akzent-text:#04220e; --ds-marke2:#4ade80; --ds-marke3:#86efac; }
+
+:root[data-marke=imagicruise]{         /* Marine */
+  --ds-akzent:#4338ca; --ds-akzent2:#312e81; --ds-akzent-zart:#e3e5fb; --ds-akzent-text:#ffffff; --ds-marke2:#4338ca; --ds-marke3:#6366f1; }
+:root[data-marke=imagicruise][data-theme=dark]{
+  --ds-akzent:#818cf8; --ds-akzent2:#c7d2fe; --ds-akzent-zart:#272a5c; --ds-akzent-text:#0f1024; --ds-marke2:#a5b4fc; --ds-marke3:#c7d2fe; }
+
+/* ========== Gemeinsame Bedienteile (ab 1.1.0) ==========
+   Knöpfe: <button class="ds-knopf">Speichern</button> · ds-zweit (umrandet) · ds-gefahr (Löschen) · ds-klein · ds-voll (ganze Breite).
+   Besondere Knöpfe einer App (Kacheln, Emoji, runde Knöpfe unten) bleiben in der App. */
+.ds-knopf{ display:inline-flex; align-items:center; justify-content:center; gap:var(--ds-abstand-2); min-height:44px; padding:9px 16px;
+  border-radius:var(--ds-radius-klein); border:1px solid var(--ds-akzent); background:var(--ds-akzent); color:var(--ds-akzent-text);
+  font:600 15px/1.2 var(--ds-schrift); text-decoration:none; cursor:pointer; -webkit-tap-highlight-color:transparent; }
+.ds-knopf:hover{ background:var(--ds-akzent2); border-color:var(--ds-akzent2); }
+.ds-knopf:active{ filter:var(--ds-druck); }
+.ds-knopf:focus-visible{ outline:3px solid var(--ds-akzent); outline-offset:2px; }
+.ds-knopf.ds-zweit{ background:var(--ds-flaeche); color:var(--ds-akzent2); border-color:var(--ds-feldrand); }
+.ds-knopf.ds-zweit:hover{ background:var(--ds-akzent-zart); }
+.ds-knopf.ds-gefahr{ background:var(--ds-flaeche); color:var(--ds-fehler); border-color:var(--ds-fehler); }
+.ds-knopf.ds-gefahr:hover{ background:var(--ds-fehler-zart); }
+.ds-knopf.ds-klein{ min-height:36px; padding:5px 12px; font-size:13.5px; }
+.ds-knopf.ds-voll{ display:flex; width:100%; }
+.ds-knopf:disabled, .ds-knopf[aria-disabled=true]{ opacity:.5; cursor:not-allowed; filter:none; }
+.ds-knoepfe{ display:flex; flex-wrap:wrap; gap:var(--ds-abstand-2); }
+
+/* Größe der Knöpfe (ab 1.2.0): <html data-knoepfe="gross"> setzt der Baustein menue (Angabe knoepfe). Alle Knöpfe und Auswahlfelder
+   sind dann mindestens 44 × 44 sichtbar, auch die mit eigener fester Höhe. Ausnahme je Knopf: Klasse ds-fest. Ohne das Attribut gilt nichts.
+   Ab 1.2.1 ohne Gewicht (:where): ein eigenes, größeres Mindestmaß bleibt, „Groß“ macht nie etwas kleiner. Bekannte kleinere Mindestmaße
+   (ds-klein, Baustein textfeld und fotoauswahl) hebt die Regel darunter; eigene kleinere Mindestmaße hebt die App selbst. */
+:where(:root[data-knoepfe=gross] :is(button, select, [role=button], input[type=button], input[type=submit], input[type=reset], .ds-knopf):not(.ds-fest)){
+  box-sizing:border-box; min-width:44px; min-height:44px; }
+:root[data-knoepfe=gross] :is(.ds-knopf.ds-klein, .tf-knopf, .fa-leiste button, .fa-alle):not(.ds-fest){ min-height:44px; }
+
+/* Meldung unten („Gespeichert“): höchstens drei übereinander, Fehler rot. Abstand nach unten über --ds-meldung-unten
+   (z. B. wenn die App unten eine Knopfleiste hat). Liegt in der obersten Ebene (popover), also auch über offenen Fenstern. */
+.ds-meldungen{ position:fixed; inset:auto; left:50%; bottom:calc(var(--ds-meldung-unten, 16px) + env(safe-area-inset-bottom));
+  transform:translateX(-50%); margin:0; padding:0; border:0; background:none; color:inherit; overflow:visible;
+  display:grid; gap:var(--ds-abstand-2); justify-items:center; width:min(520px, calc(100vw - 24px)); pointer-events:none; z-index:1000; }
+.ds-meldungen:empty{ display:none; }
+.ds-meldung{ background:#20242c; color:#fff; border-radius:var(--ds-radius-klein); padding:10px 14px; box-shadow:var(--ds-schatten-gross);
+  font:14px/1.4 var(--ds-schrift); max-width:100%; text-align:center; overflow-wrap:anywhere; white-space:pre-line; pointer-events:auto;
+  animation:ds-rein .18s ease-out; }
+:root[data-theme=dark] .ds-meldung{ background:#2d323c; outline:1px solid #4a5160; }
+.ds-meldung.ds-fehler{ background:var(--ds-voll-fehler); outline:0; }
+.ds-meldung.ds-ok{ background:var(--ds-voll-ok); outline:0; }
+@keyframes ds-rein{ from{ opacity:0; transform:translateY(6px); } }
+
+/* Rückfrage („Wirklich löschen?“), auf Wunsch mit Eingabefeld */
+.ds-frage{ width:min(440px, calc(100vw - 28px)); max-height:calc(100dvh - 40px); padding:0; border:0; border-radius:var(--ds-radius);
+  background:var(--ds-flaeche); color:var(--ds-text); box-shadow:var(--ds-schatten-gross); font:16px/1.5 var(--ds-schrift); }
+.ds-frage::backdrop{ background:rgba(10,12,16,.5); }
+.ds-frage form{ display:grid; gap:var(--ds-abstand-4); padding:var(--ds-abstand-5) 20px 18px; margin:0; }
+.ds-frage h2{ margin:0; font:700 1.1rem/1.25 var(--ds-schrift-titel); }
+.ds-frage p{ margin:0; white-space:pre-line; overflow-wrap:anywhere; }
+.ds-frage input{ font:inherit; color:inherit; width:100%; box-sizing:border-box; min-height:44px; padding:9px 12px;
+  border:1px solid var(--ds-feldrand); border-radius:var(--ds-radius-klein); background:var(--ds-flaeche); }
+.ds-frage input:focus{ outline:2px solid var(--ds-akzent); outline-offset:0; border-color:var(--ds-akzent); }
+.ds-frage .ds-knoepfe{ justify-content:flex-end; }
+
+/* Ladeanzeige bei längeren Arbeiten: Kreisel, Text, auf Wunsch Balken („3 von 20“) */
+.ds-arbeit{ position:fixed; inset:0; width:auto; height:auto; max-width:none; max-height:none; margin:0; border:0; padding:20px;
+  background:rgba(10,12,16,.55); display:grid; place-items:center; z-index:1000; color:var(--ds-text); }
+.ds-arbeit:not(:popover-open)[popover]{ display:none; }
+.ds-arbeit[hidden]{ display:none; }
+.ds-arbeit > div{ background:var(--ds-flaeche); border-radius:var(--ds-radius); padding:22px; width:min(380px, 100%); box-sizing:border-box;
+  display:grid; gap:var(--ds-abstand-3); justify-items:center; text-align:center; box-shadow:var(--ds-schatten-gross); font:15px/1.45 var(--ds-schrift); }
+.ds-arbeit p{ margin:0; overflow-wrap:anywhere; }
+.ds-arbeit progress{ width:100%; height:10px; accent-color:var(--ds-akzent); }
+.ds-kreisel{ width:34px; height:34px; border-radius:50%; border:4px solid var(--ds-akzent-zart); border-top-color:var(--ds-akzent);
+  animation:ds-drehen 1s linear infinite; box-sizing:border-box; }
+@keyframes ds-drehen{ to{ transform:rotate(360deg); } }
+@media (prefers-reduced-motion: reduce){ .ds-meldung{ animation:none; } .ds-kreisel{ animation-duration:2.5s; } }

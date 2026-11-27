@@ -1,0 +1,25 @@
+/* Baustein „vorschau“ – Leiste unter der Vorschau (Modus, Zoom, Zurücksetzen, ab 1.1.0 Ebene und „Wieder automatisch“, Hinweis). Farben aus dem Baustein design (--ds-…).
+   Quelle: Repo imagicosmos/bausteine, vorschau/vorschau.css. In den Apps eine Kopie: NICHT VON HAND ÄNDERN. */
+.vs-leiste { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ds-abstand-2, 8px); margin: var(--ds-abstand-2, 8px) 0 0; }
+.vs-leiste[hidden], .vs-leiste [hidden] { display: none; }
+.vs-modus, .vs-ebene, .vs-was { display: flex; flex-wrap: wrap; gap: var(--ds-abstand-1, 4px); }
+.vs-zoom { display: inline-flex; align-items: center; gap: var(--ds-abstand-1, 4px); font-size: .9em; color: var(--ds-text, inherit); }
+.vs-zoom input { width: 9em; accent-color: var(--ds-akzent, auto); }
+.vs-weg { color: var(--ds-fehler, #c62828); }
+/* ab 1.3.0: feste Leiste (fest: true) – zwei Zeilen, immer dieselben Knöpfe; ausgegraut statt ausgeblendet, damit nichts springt */
+.vs-leiste.vs-fest { display: grid; gap: var(--ds-abstand-1, 4px); container-type: inline-size; }
+.vs-fest .vs-modus { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.15fr); flex-wrap: nowrap; }
+.vs-fest .vs-tat { display: grid; grid-template-columns: minmax(0, 1.6fr) repeat(5, minmax(44px, 1fr)); gap: var(--ds-abstand-1, 4px); }
+.vs-fest .ds-knopf { min-width: 0; padding-inline: 4px; overflow-wrap: anywhere; }
+.vs-fest .vs-i { flex-direction: column; gap: 0; padding: 2px 0; font-size: 11px; line-height: 1.1; }
+.vs-fest .vs-i b { font-size: 16px; font-weight: 400; line-height: 1.1; }
+.vs-fest .vs-regler { display: flex; flex-direction: column; justify-content: center; align-items: stretch; gap: 0; min-width: 0; font-size: 11px;
+  border: 1px solid var(--ds-linie, #ccd); border-radius: var(--ds-radius-klein, 9px); padding: 2px 8px; }
+.vs-fest .vs-regler input { width: 100%; min-width: 0; margin: 0; }
+.vs-fest .vs-aus { opacity: .5; }
+.vs-fest .ds-knopf:disabled { cursor: default; }
+/* schmal (z. B. Feld neben dem Bild am Tablet): der Regler bekommt eine eigene Zeile */
+@container (max-width: 340px) { .vs-fest .vs-tat { grid-template-columns: repeat(5, minmax(44px, 1fr)); } .vs-fest .vs-regler { grid-column: 1 / -1; min-height: 40px; } }
+/* der Hinweis hat immer drei Zeilen Platz, damit die Leiste beim Wählen nie höher oder niedriger wird */
+.vs-fest + .vs-tipp { height: 3.75em; line-height: 1.25; overflow: hidden; }
+.vs-tipp { margin: var(--ds-abstand-1, 4px) 0 0; font-size: .85em; color: var(--ds-leise, #777); }

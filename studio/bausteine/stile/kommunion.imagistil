@@ -1,0 +1,74 @@
+{
+  "format": "imagistil",
+  "version": 1,
+  "id": "kommunion",
+  "name": "Kommunion",
+  "icon": "✨",
+  "font": "klassisch",
+  "desc": "Kommunion und Konfirmation: Creme und Weiß mit goldenem Akzent und feinen Sternen",
+  "colors": {
+    "bg1": "#fffaf0",
+    "bg2": "#f1e6cf",
+    "fg": "#3a2f1e",
+    "acc": "#b08a3c"
+  },
+  "deco": {
+    "back": [
+      {
+        "shape": "star",
+        "n": 14,
+        "size": [
+          10,
+          24
+        ],
+        "alpha": 0.45,
+        "colors": [
+          "#c9a227"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 301
+      },
+      {
+        "shape": "dot",
+        "n": 30,
+        "size": [
+          3,
+          8
+        ],
+        "alpha": 0.35,
+        "colors": [
+          "#c9a227",
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 302
+      }
+    ],
+    "photo": [
+      {
+        "shape": "star",
+        "n": 10,
+        "size": [
+          16,
+          32
+        ],
+        "alpha": 0.85,
+        "colors": [
+          "#ffffff",
+          "#e9d48a"
+        ],
+        "area": [
+          0,
+          0.3
+        ],
+        "seed": 303
+      }
+    ]
+  }
+}

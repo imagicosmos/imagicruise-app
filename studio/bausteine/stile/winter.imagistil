@@ -1,0 +1,90 @@
+{
+  "format": "imagistil",
+  "version": 1,
+  "id": "winter",
+  "name": "Winter",
+  "icon": "⛄",
+  "font": "rund",
+  "desc": "Winter: hell, eisiges Blau mit kräftig blauem Akzent und Schneeflocken",
+  "colors": {
+    "bg1": "#edf6fc",
+    "bg2": "#bcd9ee",
+    "fg": "#12324a",
+    "acc": "#1f6fa5"
+  },
+  "deco": {
+    "back": [
+      {
+        "shape": "flake",
+        "n": 18,
+        "size": [
+          50,
+          130
+        ],
+        "alpha": 0.5,
+        "colors": [
+          "#ffffff",
+          "#8fbcdc"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 161
+      },
+      {
+        "shape": "dot",
+        "n": 60,
+        "size": [
+          4,
+          11
+        ],
+        "alpha": 0.7,
+        "colors": [
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 162
+      }
+    ],
+    "photo": [
+      {
+        "shape": "dot",
+        "n": 70,
+        "size": [
+          3,
+          10
+        ],
+        "alpha": 0.8,
+        "colors": [
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          0.55
+        ],
+        "seed": 163
+      },
+      {
+        "shape": "flake",
+        "n": 8,
+        "size": [
+          40,
+          90
+        ],
+        "alpha": 0.6,
+        "colors": [
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          0.4
+        ],
+        "seed": 164
+      }
+    ]
+  }
+}

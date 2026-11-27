@@ -1,0 +1,94 @@
+{
+  "format": "imagistil",
+  "version": 1,
+  "id": "muttertag",
+  "name": "Muttertag",
+  "icon": "💐",
+  "font": "schreibschrift",
+  "desc": "Muttertag: zartes Rosa mit beerenrotem Akzent, Blüten und Herzen",
+  "colors": {
+    "bg1": "#fde2e4",
+    "bg2": "#f7b9c4",
+    "fg": "#5a1631",
+    "acc": "#c2255c"
+  },
+  "deco": {
+    "back": [
+      {
+        "shape": "flower",
+        "n": 16,
+        "size": [
+          36,
+          76
+        ],
+        "alpha": 0.4,
+        "colors": [
+          "#e64980",
+          "#ffffff",
+          "#f783ac"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 221
+      },
+      {
+        "shape": "heart",
+        "n": 12,
+        "size": [
+          18,
+          36
+        ],
+        "alpha": 0.35,
+        "colors": [
+          "#c2255c"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 222
+      }
+    ],
+    "photo": [
+      {
+        "shape": "heart",
+        "n": 12,
+        "size": [
+          24,
+          50
+        ],
+        "alpha": 0.85,
+        "colors": [
+          "#ffffff",
+          "#f783ac",
+          "#e64980"
+        ],
+        "area": [
+          0,
+          0.3
+        ],
+        "seed": 223
+      },
+      {
+        "shape": "flower",
+        "n": 6,
+        "size": [
+          36,
+          70
+        ],
+        "alpha": 0.85,
+        "colors": [
+          "#ffffff",
+          "#f783ac"
+        ],
+        "area": [
+          0,
+          0.25
+        ],
+        "seed": 224
+      }
+    ]
+  }
+}

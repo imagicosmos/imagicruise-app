@@ -1,0 +1,16 @@
+/* Baustein „videoschnitt“ – Zeitleiste zum Zuschneiden (seit 1.5.0): Griffe für Anfang und Ende, markierter Bereich dazwischen.
+   Farben aus dem Baustein design (--ds-…). Der Rand links und rechts lässt Platz für die Griffe. */
+.vz-spur { padding: 6px 30px; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.vz-bahn { position: relative; height: 48px; border-radius: var(--ds-radius-klein, 8px); border: 1px solid var(--ds-linie, #ccc);
+  background: repeating-linear-gradient(90deg, var(--ds-linie, #ccc) 0 2px, transparent 2px 14px), var(--ds-flaeche, #fff); }
+.vz-auswahl { position: absolute; top: -1px; bottom: -1px; cursor: grab; touch-action: pan-y;
+  background: color-mix(in srgb, var(--ds-akzent, #4338ca) 22%, transparent);
+  border-top: 3px solid var(--ds-akzent, #4338ca); border-bottom: 3px solid var(--ds-akzent, #4338ca); }
+.vz-griff { position: absolute; top: -6px; bottom: -6px; width: 26px; cursor: ew-resize; touch-action: pan-y; z-index: 1;
+  background: var(--ds-akzent, #4338ca); box-shadow: 0 1px 4px rgba(0, 0, 0, .3); }
+.vz-griff-a { margin-left: -26px; border-radius: 8px 3px 3px 8px; }
+.vz-griff-b { margin-left: 0; border-radius: 3px 8px 8px 3px; }
+.vz-griff::after { content: ""; position: absolute; left: 50%; top: 50%; width: 3px; height: 18px; margin: -9px 0 0 -1.5px; border-radius: 2px;
+  background: var(--ds-akzent-text, #fff); }
+.vz-griff:focus-visible { outline: 3px solid var(--ds-akzent2, var(--ds-akzent, #4338ca)); outline-offset: 2px; }
+.vz-griff.vz-zieht, .vz-auswahl.vz-zieht { filter: brightness(1.1); cursor: grabbing; }

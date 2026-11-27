@@ -1,0 +1,74 @@
+{
+  "format": "imagistil",
+  "version": 1,
+  "id": "sommer",
+  "name": "Sommer",
+  "icon": "☀",
+  "font": "retro",
+  "desc": "Sommer: Sonnenuntergang von Orangerot bis Pink mit gelbem Akzent und Lichtpunkten",
+  "colors": {
+    "bg1": "#c2410c",
+    "bg2": "#be185d",
+    "fg": "#ffffff",
+    "acc": "#ffe66d"
+  },
+  "deco": {
+    "back": [
+      {
+        "shape": "dot",
+        "n": 40,
+        "size": [
+          6,
+          18
+        ],
+        "alpha": 0.3,
+        "colors": [
+          "#ffe66d",
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 211
+      },
+      {
+        "shape": "star",
+        "n": 8,
+        "size": [
+          14,
+          28
+        ],
+        "alpha": 0.45,
+        "colors": [
+          "#ffe66d"
+        ],
+        "area": [
+          0,
+          0.5
+        ],
+        "seed": 212
+      }
+    ],
+    "photo": [
+      {
+        "shape": "dot",
+        "n": 30,
+        "size": [
+          6,
+          16
+        ],
+        "alpha": 0.7,
+        "colors": [
+          "#ffe66d",
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          0.3
+        ],
+        "seed": 213
+      }
+    ]
+  }
+}

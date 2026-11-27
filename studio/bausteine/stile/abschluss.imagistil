@@ -1,0 +1,76 @@
+{
+  "format": "imagistil",
+  "version": 1,
+  "id": "abschluss",
+  "name": "Abschluss",
+  "icon": "🎓",
+  "font": "kraeftig",
+  "desc": "Abschluss: Nachtblau mit goldenem Akzent, Konfetti und Sternen für Prüfung, Abitur und Studium",
+  "colors": {
+    "bg1": "#0d1b3e",
+    "bg2": "#1f3a7a",
+    "fg": "#ffffff",
+    "acc": "#ffc94d"
+  },
+  "deco": {
+    "back": [
+      {
+        "shape": "confetti",
+        "n": 50,
+        "size": [
+          14,
+          30
+        ],
+        "alpha": 0.45,
+        "colors": [
+          "#ffc94d",
+          "#ffffff",
+          "#7fb2f0"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 281
+      },
+      {
+        "shape": "star",
+        "n": 10,
+        "size": [
+          14,
+          30
+        ],
+        "alpha": 0.5,
+        "colors": [
+          "#ffc94d"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 282
+      }
+    ],
+    "photo": [
+      {
+        "shape": "confetti",
+        "n": 46,
+        "size": [
+          14,
+          32
+        ],
+        "alpha": 0.9,
+        "colors": [
+          "#ffc94d",
+          "#ffffff",
+          "#7fb2f0"
+        ],
+        "area": [
+          0,
+          0.3
+        ],
+        "seed": 283
+      }
+    ]
+  }
+}

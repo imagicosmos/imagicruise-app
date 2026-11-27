@@ -1,0 +1,383 @@
+{
+  "version": 1,
+  "hinweis": "Katalog der Stile für Imagiclique. Eingebaute Stile haben keine Datei. Direktlink: <App-Adresse>?stil=<id>",
+  "stile": [
+    {
+      "id": "weihnachten",
+      "name": "Weihnachten",
+      "icon": "❄",
+      "desc": "Weihnachten: dunkelrot mit goldenem Akzent, Schneeflocken und Sterne",
+      "farben": {
+        "bg1": "#8a1423",
+        "bg2": "#3f0a13",
+        "fg": "#fff8ec",
+        "acc": "#f2c14e"
+      },
+      "eingebaut": true
+    },
+    {
+      "id": "geburtstag",
+      "name": "Geburtstag",
+      "icon": "🎈",
+      "desc": "Geburtstag: kräftiges Pink bis Violett mit gelbem Akzent und buntem Konfetti",
+      "farben": {
+        "bg1": "#d81b60",
+        "bg2": "#6a1b9a",
+        "fg": "#ffffff",
+        "acc": "#ffe066"
+      },
+      "eingebaut": true
+    },
+    {
+      "id": "silvester",
+      "name": "Silvester",
+      "icon": "🎆",
+      "desc": "Silvester: nachtblau mit goldenem Akzent, Sterne und Funken",
+      "farben": {
+        "bg1": "#0b1026",
+        "bg2": "#2a1458",
+        "fg": "#ffffff",
+        "acc": "#ffd166"
+      },
+      "datei": "silvester.imagistil"
+    },
+    {
+      "id": "ostern",
+      "name": "Ostern",
+      "icon": "🐣",
+      "desc": "Ostern: hell, zartes Frühlingsgrün mit pinkem Akzent und Blüten",
+      "farben": {
+        "bg1": "#f6fae6",
+        "bg2": "#d3eaae",
+        "fg": "#27401a",
+        "acc": "#c2357c"
+      },
+      "datei": "ostern.imagistil"
+    },
+    {
+      "id": "urlaub",
+      "name": "Urlaub",
+      "icon": "🌴",
+      "desc": "Urlaub: Meerblau bis Türkis mit sonnengelbem Akzent und Lichtpunkten",
+      "farben": {
+        "bg1": "#0a5f8f",
+        "bg2": "#18a6a0",
+        "fg": "#ffffff",
+        "acc": "#ffd97a"
+      },
+      "datei": "urlaub.imagistil"
+    },
+    {
+      "id": "hochzeit",
+      "name": "Hochzeit",
+      "icon": "💍",
+      "desc": "Hochzeit: hell, Creme und Rosé mit kupferfarbenem Akzent und Herzen",
+      "farben": {
+        "bg1": "#fcf5f0",
+        "bg2": "#f1d9d2",
+        "fg": "#3b2a2a",
+        "acc": "#a8604d"
+      },
+      "datei": "hochzeit.imagistil"
+    },
+    {
+      "id": "einschulung",
+      "name": "Einschulung",
+      "icon": "🎒",
+      "desc": "Einschulung: fröhliches Blau mit gelbem Akzent, buntes Konfetti und Sterne",
+      "farben": {
+        "bg1": "#1769c0",
+        "bg2": "#0d47a1",
+        "fg": "#ffffff",
+        "acc": "#ffd54f"
+      },
+      "datei": "einschulung.imagistil"
+    },
+    {
+      "id": "taufe",
+      "name": "Taufe",
+      "icon": "🕊",
+      "desc": "Taufe: hell, zartes Himmelblau mit ruhigem Blau als Akzent und feinen Lichtpunkten",
+      "farben": {
+        "bg1": "#f4f9fd",
+        "bg2": "#d3e5f3",
+        "fg": "#243447",
+        "acc": "#3f729b"
+      },
+      "datei": "taufe.imagistil"
+    },
+    {
+      "id": "herbst",
+      "name": "Herbst",
+      "icon": "🍂",
+      "desc": "Herbst: warmes Rostbraun bis Orange mit goldgelbem Akzent und fallenden Blättern",
+      "farben": {
+        "bg1": "#7a2e0e",
+        "bg2": "#b85a17",
+        "fg": "#fff6e6",
+        "acc": "#ffc857"
+      },
+      "datei": "herbst.imagistil"
+    },
+    {
+      "id": "fussball",
+      "name": "Fußball",
+      "icon": "⚽",
+      "desc": "Fußball: Rasengrün mit gelbem Akzent, helle Lichtpunkte und Sterne",
+      "farben": {
+        "bg1": "#0f5a2a",
+        "bg2": "#1f8a3f",
+        "fg": "#ffffff",
+        "acc": "#ffe14d"
+      },
+      "datei": "fussball.imagistil"
+    },
+    {
+      "id": "fasching",
+      "name": "Fasching",
+      "icon": "🎭",
+      "desc": "Fasching: Orange bis Pink mit gelbem Akzent und sehr viel buntem Konfetti",
+      "farben": {
+        "bg1": "#c2500a",
+        "bg2": "#b81f5a",
+        "fg": "#ffffff",
+        "acc": "#fff275"
+      },
+      "datei": "fasching.imagistil"
+    },
+    {
+      "id": "valentinstag",
+      "name": "Valentinstag",
+      "icon": "💘",
+      "desc": "Valentinstag: tiefes Rot mit rosa Akzent und vielen Herzen",
+      "farben": {
+        "bg1": "#b3123f",
+        "bg2": "#5e0a26",
+        "fg": "#fff5f7",
+        "acc": "#ffb3c7"
+      },
+      "datei": "valentinstag.imagistil"
+    },
+    {
+      "id": "winter",
+      "name": "Winter",
+      "icon": "⛄",
+      "desc": "Winter: hell, eisiges Blau mit kräftig blauem Akzent und Schneeflocken",
+      "farben": {
+        "bg1": "#edf6fc",
+        "bg2": "#bcd9ee",
+        "fg": "#12324a",
+        "acc": "#1f6fa5"
+      },
+      "datei": "winter.imagistil"
+    },
+    {
+      "id": "gedenken",
+      "name": "Gedenken",
+      "icon": "🕯",
+      "desc": "Gedenken: dunkles Grau mit gedecktem Goldton, sehr zurückhaltend",
+      "farben": {
+        "bg1": "#1c1c1e",
+        "bg2": "#3a3a3f",
+        "fg": "#f2f2f2",
+        "acc": "#c9b78a"
+      },
+      "datei": "gedenken.imagistil"
+    },
+    {
+      "id": "fruehling",
+      "name": "Frühling",
+      "icon": "🌷",
+      "desc": "Frühling: frisches Hellgrün bis Mint mit rosa Akzent und Blüten",
+      "farben": {
+        "bg1": "#eaf8e6",
+        "bg2": "#bfe8c8",
+        "fg": "#1d3b2a",
+        "acc": "#d6336c"
+      },
+      "datei": "fruehling.imagistil"
+    },
+    {
+      "id": "sommer",
+      "name": "Sommer",
+      "icon": "☀",
+      "desc": "Sommer: Sonnenuntergang von Orangerot bis Pink mit gelbem Akzent und Lichtpunkten",
+      "farben": {
+        "bg1": "#c2410c",
+        "bg2": "#be185d",
+        "fg": "#ffffff",
+        "acc": "#ffe66d"
+      },
+      "datei": "sommer.imagistil"
+    },
+    {
+      "id": "muttertag",
+      "name": "Muttertag",
+      "icon": "💐",
+      "desc": "Muttertag: zartes Rosa mit beerenrotem Akzent, Blüten und Herzen",
+      "farben": {
+        "bg1": "#fde2e4",
+        "bg2": "#f7b9c4",
+        "fg": "#5a1631",
+        "acc": "#c2255c"
+      },
+      "datei": "muttertag.imagistil"
+    },
+    {
+      "id": "vatertag",
+      "name": "Vatertag",
+      "icon": "🧢",
+      "desc": "Vatertag: dunkles Marineblau mit orangem Akzent und Sternen",
+      "farben": {
+        "bg1": "#14213d",
+        "bg2": "#274472",
+        "fg": "#ffffff",
+        "acc": "#fca311"
+      },
+      "datei": "vatertag.imagistil"
+    },
+    {
+      "id": "halloween",
+      "name": "Halloween",
+      "icon": "🎃",
+      "desc": "Halloween: Schwarz bis Violett mit Kürbis-Orange, Blättern und Sternen",
+      "farben": {
+        "bg1": "#140b1f",
+        "bg2": "#3b1453",
+        "fg": "#fff4e6",
+        "acc": "#ff7518"
+      },
+      "datei": "halloween.imagistil"
+    },
+    {
+      "id": "oktoberfest",
+      "name": "Oktoberfest",
+      "icon": "🥨",
+      "desc": "Oktoberfest: hell, Weiß und Himmelblau mit rotem Akzent und blau-weißem Konfetti",
+      "farben": {
+        "bg1": "#eef6ff",
+        "bg2": "#cfe4ff",
+        "fg": "#0b3d91",
+        "acc": "#c8102e"
+      },
+      "datei": "oktoberfest.imagistil"
+    },
+    {
+      "id": "advent",
+      "name": "Advent",
+      "icon": "⭐",
+      "desc": "Advent: Tannengrün mit goldenem Akzent, Sternen und Lichtern",
+      "farben": {
+        "bg1": "#0f3d2e",
+        "bg2": "#1b5e3f",
+        "fg": "#fff9ec",
+        "acc": "#e9c46a"
+      },
+      "datei": "advent.imagistil"
+    },
+    {
+      "id": "jubilaeum",
+      "name": "Jubiläum",
+      "icon": "🥂",
+      "desc": "Jubiläum: tiefes Schwarz mit Gold, goldenes Konfetti und Sterne",
+      "farben": {
+        "bg1": "#111111",
+        "bg2": "#2b2418",
+        "fg": "#fff8e7",
+        "acc": "#d4af37"
+      },
+      "datei": "jubilaeum.imagistil"
+    },
+    {
+      "id": "abschluss",
+      "name": "Abschluss",
+      "icon": "🎓",
+      "desc": "Abschluss: Nachtblau mit goldenem Akzent, Konfetti und Sternen für Prüfung, Abitur und Studium",
+      "farben": {
+        "bg1": "#0d1b3e",
+        "bg2": "#1f3a7a",
+        "fg": "#ffffff",
+        "acc": "#ffc94d"
+      },
+      "datei": "abschluss.imagistil"
+    },
+    {
+      "id": "geburt",
+      "name": "Willkommen Baby",
+      "icon": "👶",
+      "desc": "Willkommen Baby: Pastell von Hellblau bis Rosa mit Herzen, Sternen und Punkten",
+      "farben": {
+        "bg1": "#e3f2fd",
+        "bg2": "#fde4ec",
+        "fg": "#2d3a4a",
+        "acc": "#6c8fc7"
+      },
+      "datei": "geburt.imagistil"
+    },
+    {
+      "id": "kommunion",
+      "name": "Kommunion",
+      "icon": "✨",
+      "desc": "Kommunion und Konfirmation: Creme und Weiß mit goldenem Akzent und feinen Sternen",
+      "farben": {
+        "bg1": "#fffaf0",
+        "bg2": "#f1e6cf",
+        "fg": "#3a2f1e",
+        "acc": "#b08a3c"
+      },
+      "datei": "kommunion.imagistil"
+    },
+    {
+      "id": "einzug",
+      "name": "Neues Zuhause",
+      "icon": "🏡",
+      "desc": "Neues Zuhause: warmes Sand bis Terrakotta mit grünen Blättern",
+      "farben": {
+        "bg1": "#f6e7d8",
+        "bg2": "#e9c9a8",
+        "fg": "#3d2416",
+        "acc": "#b4462a"
+      },
+      "datei": "einzug.imagistil"
+    },
+    {
+      "id": "reisetagebuch",
+      "name": "Reisetagebuch",
+      "icon": "🧳",
+      "desc": "Reisetagebuch: helles Papier mit dunkelbrauner Schrift und petrolblauem Akzent",
+      "farben": {
+        "bg1": "#f4ecd8",
+        "bg2": "#e2d3b3",
+        "fg": "#2f2a22",
+        "acc": "#1f6f80"
+      },
+      "datei": "reisetagebuch.imagistil"
+    },
+    {
+      "id": "danke",
+      "name": "Danke",
+      "icon": "💛",
+      "desc": "Danke: warmes Gelb bis Pfirsich mit korallrotem Akzent, Herzen und Blüten",
+      "farben": {
+        "bg1": "#fff3c4",
+        "bg2": "#ffd6a5",
+        "fg": "#4a2c0a",
+        "acc": "#d9480f"
+      },
+      "datei": "danke.imagistil"
+    },
+    {
+      "id": "party",
+      "name": "Party",
+      "icon": "🎉",
+      "desc": "Party: Neon-Pink bis tiefes Violett mit türkisem Akzent und viel Konfetti",
+      "farben": {
+        "bg1": "#d0005a",
+        "bg2": "#3a0ca3",
+        "fg": "#ffffff",
+        "acc": "#00f5d4"
+      },
+      "datei": "party.imagistil"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "format": "imagistil",
+  "version": 1,
+  "id": "danke",
+  "name": "Danke",
+  "icon": "💛",
+  "font": "hand",
+  "desc": "Danke: warmes Gelb bis Pfirsich mit korallrotem Akzent, Herzen und Blüten",
+  "colors": {
+    "bg1": "#fff3c4",
+    "bg2": "#ffd6a5",
+    "fg": "#4a2c0a",
+    "acc": "#d9480f"
+  },
+  "deco": {
+    "back": [
+      {
+        "shape": "heart",
+        "n": 14,
+        "size": [
+          18,
+          36
+        ],
+        "alpha": 0.35,
+        "colors": [
+          "#e76f51",
+          "#f4a261"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 331
+      },
+      {
+        "shape": "flower",
+        "n": 10,
+        "size": [
+          30,
+          60
+        ],
+        "alpha": 0.35,
+        "colors": [
+          "#ffffff",
+          "#f4a261"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 332
+      }
+    ],
+    "photo": [
+      {
+        "shape": "heart",
+        "n": 12,
+        "size": [
+          22,
+          46
+        ],
+        "alpha": 0.85,
+        "colors": [
+          "#ffffff",
+          "#e76f51",
+          "#f4a261"
+        ],
+        "area": [
+          0,
+          0.28
+        ],
+        "seed": 333
+      }
+    ]
+  }
+}

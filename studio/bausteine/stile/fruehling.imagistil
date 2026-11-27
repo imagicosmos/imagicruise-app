@@ -1,0 +1,78 @@
+{
+  "format": "imagistil",
+  "version": 1,
+  "id": "fruehling",
+  "name": "Frühling",
+  "icon": "🌷",
+  "font": "schwung",
+  "desc": "Frühling: frisches Hellgrün bis Mint mit rosa Akzent und Blüten",
+  "colors": {
+    "bg1": "#eaf8e6",
+    "bg2": "#bfe8c8",
+    "fg": "#1d3b2a",
+    "acc": "#d6336c"
+  },
+  "deco": {
+    "back": [
+      {
+        "shape": "flower",
+        "n": 22,
+        "size": [
+          36,
+          80
+        ],
+        "alpha": 0.45,
+        "colors": [
+          "#f78fb3",
+          "#ffd166",
+          "#ffffff",
+          "#c39bd3"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 201
+      },
+      {
+        "shape": "dot",
+        "n": 30,
+        "size": [
+          4,
+          10
+        ],
+        "alpha": 0.35,
+        "colors": [
+          "#7cc47f"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 202
+      }
+    ],
+    "photo": [
+      {
+        "shape": "flower",
+        "n": 14,
+        "size": [
+          40,
+          86
+        ],
+        "alpha": 0.9,
+        "colors": [
+          "#f78fb3",
+          "#ffd166",
+          "#ffffff",
+          "#c39bd3"
+        ],
+        "area": [
+          0,
+          0.3
+        ],
+        "seed": 203
+      }
+    ]
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "format": "imagistil",
+  "version": 1,
+  "id": "silvester",
+  "name": "Silvester",
+  "icon": "🎆",
+  "font": "kraeftig",
+  "desc": "Silvester: nachtblau mit goldenem Akzent, Sterne und Funken",
+  "colors": {
+    "bg1": "#0b1026",
+    "bg2": "#2a1458",
+    "fg": "#ffffff",
+    "acc": "#ffd166"
+  },
+  "deco": {
+    "back": [
+      {
+        "shape": "star",
+        "n": 34,
+        "size": [
+          10,
+          36
+        ],
+        "alpha": 0.7,
+        "colors": [
+          "#ffd166",
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 51
+      },
+      {
+        "shape": "dot",
+        "n": 90,
+        "size": [
+          2,
+          6
+        ],
+        "alpha": 0.5,
+        "colors": [
+          "#ffffff",
+          "#ffd166"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 52
+      },
+      {
+        "shape": "confetti",
+        "n": 26,
+        "size": [
+          12,
+          26
+        ],
+        "alpha": 0.35,
+        "colors": [
+          "#ffd166",
+          "#c0c6d9"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 53
+      }
+    ],
+    "photo": [
+      {
+        "shape": "star",
+        "n": 26,
+        "size": [
+          12,
+          40
+        ],
+        "alpha": 0.9,
+        "colors": [
+          "#ffd166",
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          0.4
+        ],
+        "seed": 54
+      },
+      {
+        "shape": "dot",
+        "n": 50,
+        "size": [
+          3,
+          7
+        ],
+        "alpha": 0.8,
+        "colors": [
+          "#ffffff",
+          "#ffd166"
+        ],
+        "area": [
+          0,
+          0.45
+        ],
+        "seed": 55
+      }
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "format": "imagistil",
+  "version": 1,
+  "id": "jubilaeum",
+  "name": "Jubiläum",
+  "icon": "🥂",
+  "font": "schreibschrift",
+  "desc": "Jubiläum: tiefes Schwarz mit Gold, goldenes Konfetti und Sterne",
+  "colors": {
+    "bg1": "#111111",
+    "bg2": "#2b2418",
+    "fg": "#fff8e7",
+    "acc": "#d4af37"
+  },
+  "deco": {
+    "back": [
+      {
+        "shape": "confetti",
+        "n": 50,
+        "size": [
+          12,
+          26
+        ],
+        "alpha": 0.45,
+        "colors": [
+          "#d4af37",
+          "#f5e6a8",
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 271
+      },
+      {
+        "shape": "star",
+        "n": 10,
+        "size": [
+          14,
+          28
+        ],
+        "alpha": 0.5,
+        "colors": [
+          "#d4af37"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 272
+      }
+    ],
+    "photo": [
+      {
+        "shape": "confetti",
+        "n": 40,
+        "size": [
+          14,
+          30
+        ],
+        "alpha": 0.9,
+        "colors": [
+          "#d4af37",
+          "#f5e6a8",
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          0.3
+        ],
+        "seed": 273
+      }
+    ]
+  }
+}

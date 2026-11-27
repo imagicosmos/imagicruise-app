@@ -1,0 +1,217 @@
+{
+  "hinweis": "Kopien aus dem Repo imagicosmos/bausteine. Nicht von Hand ändern; prüfen mit: node pruefen.js",
+  "bausteine": {
+    "fotos": {
+      "version": "1.1.0",
+      "hauptdatei": "foto-daten.js",
+      "beschreibung": "Foto-Daten lesen",
+      "dateien": {
+        "foto-daten.js": "2f3221dbd3b1a1475ca1afcaba583031d6927fb1297dc9873777d31f84964b05"
+      }
+    },
+    "_pruefen": {
+      "version": "1.0.0",
+      "dateien": {
+        "pruefen.js": "f57125f0eeacdd25dc85de68b49cf7bfd9947f08fd8eafb9b302b52b6d76a905"
+      }
+    },
+    "fotoauswahl": {
+      "version": "1.2.0",
+      "hauptdatei": "foto-auswahl.js",
+      "beschreibung": "Fotos auswählen",
+      "dateien": {
+        "foto-auswahl.js": "e4a071229fe0122023929325942b84bfbdce9a19638d6120325a56ae16cbf510",
+        "foto-auswahl.css": "e2759c3636c0b5ae6dd776205ff23648dc24289104a1c24d9d27327359665bb7"
+      }
+    },
+    "videoschnitt": {
+      "version": "1.5.0",
+      "hauptdatei": "video-schnitt.js",
+      "beschreibung": "Videoschnitt",
+      "fremd": [
+        {
+          "name": "mp4box.js",
+          "lizenz": "BSD-3-Clause"
+        },
+        {
+          "name": "mp4-muxer",
+          "lizenz": "MIT"
+        }
+      ],
+      "dateien": {
+        "video-schnitt.js": "aea26491a2907a174ac429369fb15a4d89ce862ad155c6e86247591714acda2a",
+        "video-zeitleiste.css": "cb79616d18b68da9493e97944f8d58b2c3722db01359940232e574313d639936",
+        "mp4box.all.min.js": "07ccf31d127803dd1cca1208bbfd0983b21f795cb0d2b80687a7ec6bdb391219",
+        "mp4-muxer.min.js": "23696c3869c78ae0743a9231e6940b357aaddf563a6bc7cc5b3c58303c0b5ef5",
+        "mp4box.LICENSE.txt": "ebad0332150a08f37389158289d93ab2f70b0ee8717d1db9b3d002febc6c5047",
+        "mp4-muxer.LICENSE.txt": "75c54aae7ef6ad652f684f9dd3b71e4dcef86ccebd88cf441ceed7f5eec037c5"
+      }
+    },
+    "bildbearbeitung": {
+      "version": "1.1.0",
+      "hauptdatei": "bild-bearbeitung.js",
+      "beschreibung": "Bildbearbeitung",
+      "dateien": {
+        "bild-bearbeitung.js": "c313dc5f04ce1887dae960a25e5b2f8c978b7bf6b33b73a241327e8a090f7a67"
+      }
+    },
+    "ortsinfo": {
+      "version": "1.0.0",
+      "hauptdatei": "orts-info.js",
+      "beschreibung": "Infos zum Ort aus der Wikipedia",
+      "dateien": {
+        "orts-info.js": "da4330e30edfe9889dafdf805895d10fcfaefcc3611adc34c84d76413fe830b0"
+      }
+    },
+    "ki": {
+      "version": "1.1.0",
+      "hauptdatei": "ki-kern.js",
+      "beschreibung": "KI-Hilfe",
+      "dateien": {
+        "ki-kern.js": "c63c30becdbe1962a1ac836071ec368f41253edb083c4dc8283cca423b8b251c"
+      }
+    },
+    "aktualisieren": {
+      "version": "1.1.0",
+      "hauptdatei": "aktualisieren.js",
+      "beschreibung": "Neue Versionen melden",
+      "dateien": {
+        "aktualisieren.js": "bc88d32eafea29b0a2cb467bd7815762c7d953bb1788bafc057200a6ef1c88b7",
+        "aktualisieren.css": "1c040764bdaa8b24997500fd50396497b65e75b1eac99cf5452c2471de7d4b63"
+      }
+    },
+    "menue": {
+      "version": "2.1.0",
+      "hauptdatei": "menue.js",
+      "beschreibung": "Menü und Hilfe",
+      "dateien": {
+        "menue.js": "40ed9f47547e82f85ae1dfc2cfc5072e1d89348672ba72cbe00b5155aa9c059b",
+        "menue.css": "ff522dd0d29ef7a265c83a12e2379e233fcaab61241b90114263e552f3b0b3ed"
+      }
+    },
+    "zauberstab": {
+      "version": "1.3.0",
+      "hauptdatei": "zauberstab.js",
+      "beschreibung": "Logo-Animation",
+      "dateien": {
+        "zauberstab.js": "f444bd3fefb682a7a3be065117087817ee86089e9a25e71f36521f7f862cc2c8"
+      }
+    },
+    "design": {
+      "version": "1.2.1",
+      "hauptdatei": "design.css",
+      "beschreibung": "Farben, Abstände, Schrift der Marke, Knöpfe, Meldung, Rückfrage, Ladeanzeige",
+      "fremd": [
+        {
+          "name": "Schrift Josefin Sans",
+          "lizenz": "SIL Open Font License 1.1"
+        }
+      ],
+      "dateien": {
+        "design.css": "a75b96670ca2d652751a98babfc7328fd0f8eda8ffd1eb3280bf2d83f95a6c55",
+        "design.js": "1e1e9681d8344d8304b145467ee0cdd56db90c23166660688633cf62e18f4ce5",
+        "josefin-sans-latin-700-normal.woff2": "a3c6a58cd814957f4d0f30bd99afae615e74cba87dbef88a276593bcb3b3568b",
+        "OFL-josefin-sans.txt": "aee5a4081e8a52f80428b30f178b719d115f18dad3e1fa15a986163e1078a85b"
+      }
+    },
+    "ueber": {
+      "version": "1.0.0",
+      "hauptdatei": "ueber.js",
+      "beschreibung": "Seite „Über“ mit Version und Aktualisieren",
+      "dateien": {
+        "ueber.js": "599a0b2ed3c2c962b0e5d3636ee3380110eb32f455479692af39c17c7dfcbe59",
+        "ueber.css": "59e836c8a591ec465ba50730f6169bcc08e48c1bac49b51a995752078ea18bfe"
+      }
+    },
+    "textfeld": {
+      "version": "1.0.2",
+      "hauptdatei": "textfeld.js",
+      "beschreibung": "Textfelder mit Diktieren",
+      "dateien": {
+        "textfeld.js": "8640648798ada8683ed1a5cadf00b70053c080beaad38f7066be286eeb453214",
+        "textfeld.css": "3f86ad820cf0ebb93323b9a843363b30d10c43b79a388a588690a88620a9c2e4"
+      }
+    },
+    "vorlagen": {
+      "version": "1.8.0",
+      "hauptdatei": "vorlagen.js",
+      "beschreibung": "Vorlagen, Stile und Schriften für Statusbilder",
+      "fremd": [
+        {
+          "name": "Schriften Inter, Playfair Display, Cormorant Garamond, Caveat, Dancing Script, Great Vibes, Bebas Neue, Oswald, Fredoka, Comfortaa, Pacifico, Lobster",
+          "lizenz": "SIL Open Font License 1.1"
+        },
+        {
+          "name": "Schriften Special Elite, Permanent Marker",
+          "lizenz": "Apache-Lizenz 2.0"
+        }
+      ],
+      "dateien": {
+        "vorlagen.js": "df237766deeb33a39eddd2b1b45041b7faf9897be0ab83f6ce54ab6184fbb845",
+        "LIZENZEN-schriften.txt": "9e9ea9c31ac459aeaa96d3f56b67b68995e5eec7a232224ab08daa83bfcdd11e",
+        "bebas-neue-latin-400-normal.woff2": "a7c90c89240c134f7fdd33d40c000ec90b79d675ea53e8cc5a6d423c073de412",
+        "caveat-latin-700-normal.woff2": "15f9638095ad5ec9816f93d66805ca1a87e71dc5a76b596bfce1c78d4704c405",
+        "comfortaa-latin-700-normal.woff2": "ed9f328cf6aaa4c14dfb464d215e8a0d8d56b675a72fb601b819e95a1cb4e45d",
+        "cormorant-garamond-latin-700-normal.woff2": "21a0fc1c5c22708cf4aa0c147fd32982e25bf9e21efec0ca31a4495ba41753eb",
+        "dancing-script-latin-700-normal.woff2": "06b326d772e3a68977c10711110f5f38255a007f3775795efbcd3862313b2d22",
+        "fredoka-latin-600-normal.woff2": "b62f2898de150f019961f4884a49f83dcd2ce74375be5e0992c594ebb8f30294",
+        "great-vibes-latin-400-normal.woff2": "c59dc73d29daf142ef2431f455d21464172374aa750d793a79d608735db2d856",
+        "inter-latin-400-normal.woff2": "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+        "inter-latin-600-normal.woff2": "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+        "inter-latin-800-normal.woff2": "a7d0a50f15d389cad679238466bdb5fc9787aa0715719064ce25abaff042820d",
+        "lobster-latin-400-normal.woff2": "aed68c73817364906ff95d97be87246d106bd38d5e4397e4866ec831ee22f7ba",
+        "oswald-latin-600-normal.woff2": "f6cb541f4d9794b86145c9c3e7d778ffb78c92f8180c577e245238991503da6f",
+        "pacifico-latin-400-normal.woff2": "99ec044ad9040a708e38f90ebd5984ca03fc46afeee26d5c77c4769c66ed89e2",
+        "permanent-marker-latin-400-normal.woff2": "4884fec2c73aa52a2461073c1b87d1ceb80f400520391b43f97ca7d3c39eeb24",
+        "playfair-display-latin-600-normal.woff2": "5d2286941a6b02a29387efa94809a064f8917598eafa67b938261cf13bb887cd",
+        "playfair-display-latin-800-normal.woff2": "576ff9c33a472cc36e3975f24811db2234b0a10872939b04c0ba9b915e9c2b3f",
+        "special-elite-latin-400-normal.woff2": "770493d84cbb753cd0573d0f014550583138f40469d137e310d239593a1949d8",
+        "stile/abschluss.imagistil": "783b1078c98da8e76675b90aef730f9e09f204f477ff342767c2b042aa04d408",
+        "stile/advent.imagistil": "cb6bd7476b7e8899aad099872e3805184c4ffb1d6d4107e33c2540b36532ce74",
+        "stile/danke.imagistil": "dd230773251fd5f153e4877766d4b3c5afebec03afa0166ffcf7a45bb61e5702",
+        "stile/einschulung.imagistil": "0e3d68f4ab5d31c6a81d889caebce42d15e30e69bd080f39d52eb1f7331d915d",
+        "stile/einzug.imagistil": "183921c31ed5fed4928019d10a9cdc11f0fe7febeb6e8d818adb92194371ace5",
+        "stile/fasching.imagistil": "8529b353f926ea3eb322f6c28426cde1bdb2528157eb175f34c200073b61480d",
+        "stile/fruehling.imagistil": "999c087ac4838ccb4502d4629d3a7c3fd19b7d1aacdad42d54011ac00cbfecd1",
+        "stile/fussball.imagistil": "c0753f2e3b2f73b7db24054dead0e6fa793f74ba48c03848699b837084f42366",
+        "stile/geburt.imagistil": "1fd41d777abe78c5662fb6801094f066656a5eb9741d516592efdb3852e67992",
+        "stile/gedenken.imagistil": "e4623ecd1163fcb7b05a7d1091741c2a1d4da930f40fb07fbd4368161e855435",
+        "stile/halloween.imagistil": "e767dac3a84e91dc842f6a31f2d4131341895ba1c12690fa3bddd6deb1960fe9",
+        "stile/herbst.imagistil": "35dc1cdd9d6247d68779939095885c7206132f4b40e82857de71bac4901b67c5",
+        "stile/hochzeit.imagistil": "a0f4576ac954f56f61e28ba7c30f4aa588dd6aa14f4f4e88888d7776e5bd1700",
+        "stile/jubilaeum.imagistil": "122f4078181133fe7380690fa9683d8156ebf137689c9f291b810595741f553a",
+        "stile/katalog.json": "44a2f4ef979500a6d707fcecafd507ac21e9e4a34b75820721d2a54e36a4ba84",
+        "stile/kommunion.imagistil": "65437c624ada26160994c222485479382bf37208bebf508f8ce7f3be9110ab95",
+        "stile/muttertag.imagistil": "90abf04d378144723fba3a771d1f6f66a773cc2d7ab8f3b2d64c6177971dd51d",
+        "stile/oktoberfest.imagistil": "4db5c2a91f67a6934e21909390a8ee1aa96c57eaf9d598a2700afc3689e6f321",
+        "stile/ostern.imagistil": "8853fa8d705608dc840686f420fa32329bec27422d58caf41f99cc54eb961034",
+        "stile/party.imagistil": "72664712378c1ae3bebbe506f00a03be9f94dda946b3764583051b0bda027769",
+        "stile/reisetagebuch.imagistil": "e12589f33c8ca018a36538fd4ece79b17764d9ccd92545b5b61c6a4f1385e244",
+        "stile/silvester.imagistil": "f373ca920282e3bbd428f028ff79fc6a98f6507a3bd98c391ad70154b42872cd",
+        "stile/sommer.imagistil": "aecba8e4f17b6596934a3fdd7921e79d43eb6ed4a4b0fce39d6c4dca8e8ef5b6",
+        "stile/taufe.imagistil": "e0e5323005dfa8ece8141284bf62fcd8f3fea84a283ef59453cd41f3a8ab384a",
+        "stile/urlaub.imagistil": "77e2f041d7b433eeb147fae032fb8adc18d7615bb3bc4141235b414226c729da",
+        "stile/valentinstag.imagistil": "805951a4a4eae83e6d5cb891464059878e561f5c1f9b22964d1d18a97d0bd505",
+        "stile/vatertag.imagistil": "7f28c20b1c0027d0c843af472a53da7c5f5d80a33629b8dff294f0e1790e6a3e",
+        "stile/winter.imagistil": "cd8947993e49f9bbcac85efec195d45643572d25fd190450378ad18b62dfe591"
+      }
+    },
+    "sticker": {
+      "version": "1.1.0",
+      "hauptdatei": "sticker.js",
+      "beschreibung": "Bewegte Sticker (Katalog nach Anlass)",
+      "dateien": {
+        "sticker.js": "5960ab45d9742e867c5764f7561feff9e6a89eb0f6a9cc01fba356302df9c7f3"
+      }
+    },
+    "vorschau": {
+      "version": "1.3.1",
+      "hauptdatei": "vorschau.js",
+      "beschreibung": "Fotos und Sticker in der Vorschau bedienen (Ausschnitt, Zoom, Tauschen)",
+      "dateien": {
+        "vorschau.js": "4b8a8f5ad74e1b2de3838c8ab846ff65fd6d4b206cf102edbaa5da6a77a90718",
+        "vorschau.css": "2b879d0fab755e7a73af0b3e79b36f3aeac8d1a0d73190750c0c1682d40ada32"
+      }
+    }
+  }
+}

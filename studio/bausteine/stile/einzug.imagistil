@@ -1,0 +1,75 @@
+{
+  "format": "imagistil",
+  "version": 1,
+  "id": "einzug",
+  "name": "Neues Zuhause",
+  "icon": "🏡",
+  "font": "hand",
+  "desc": "Neues Zuhause: warmes Sand bis Terrakotta mit grünen Blättern",
+  "colors": {
+    "bg1": "#f6e7d8",
+    "bg2": "#e9c9a8",
+    "fg": "#3d2416",
+    "acc": "#b4462a"
+  },
+  "deco": {
+    "back": [
+      {
+        "shape": "leaf",
+        "n": 16,
+        "size": [
+          30,
+          66
+        ],
+        "alpha": 0.4,
+        "colors": [
+          "#6a994e",
+          "#a7c957",
+          "#b4462a"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 311
+      },
+      {
+        "shape": "dot",
+        "n": 24,
+        "size": [
+          4,
+          9
+        ],
+        "alpha": 0.3,
+        "colors": [
+          "#b4462a"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 312
+      }
+    ],
+    "photo": [
+      {
+        "shape": "leaf",
+        "n": 10,
+        "size": [
+          34,
+          70
+        ],
+        "alpha": 0.9,
+        "colors": [
+          "#6a994e",
+          "#a7c957"
+        ],
+        "area": [
+          0,
+          0.28
+        ],
+        "seed": 313
+      }
+    ]
+  }
+}

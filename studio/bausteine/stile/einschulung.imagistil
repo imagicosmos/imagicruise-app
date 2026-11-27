@@ -1,0 +1,98 @@
+{
+  "format": "imagistil",
+  "version": 1,
+  "id": "einschulung",
+  "name": "Einschulung",
+  "icon": "🎒",
+  "font": "verspielt",
+  "desc": "Einschulung: fröhliches Blau mit gelbem Akzent, buntes Konfetti und Sterne",
+  "colors": {
+    "bg1": "#1769c0",
+    "bg2": "#0d47a1",
+    "fg": "#ffffff",
+    "acc": "#ffd54f"
+  },
+  "deco": {
+    "back": [
+      {
+        "shape": "confetti",
+        "n": 50,
+        "size": [
+          14,
+          30
+        ],
+        "alpha": 0.5,
+        "colors": [
+          "#ffd54f",
+          "#ff8a65",
+          "#aed581",
+          "#ffffff",
+          "#f48fb1"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 101
+      },
+      {
+        "shape": "star",
+        "n": 16,
+        "size": [
+          14,
+          34
+        ],
+        "alpha": 0.6,
+        "colors": [
+          "#ffd54f",
+          "#ffffff"
+        ],
+        "area": [
+          0,
+          1
+        ],
+        "seed": 102
+      }
+    ],
+    "photo": [
+      {
+        "shape": "confetti",
+        "n": 44,
+        "size": [
+          14,
+          30
+        ],
+        "alpha": 0.9,
+        "colors": [
+          "#ffd54f",
+          "#ff8a65",
+          "#aed581",
+          "#ffffff",
+          "#f48fb1"
+        ],
+        "area": [
+          0,
+          0.3
+        ],
+        "seed": 103
+      },
+      {
+        "shape": "star",
+        "n": 10,
+        "size": [
+          16,
+          36
+        ],
+        "alpha": 0.9,
+        "colors": [
+          "#ffd54f"
+        ],
+        "area": [
+          0,
+          0.3
+        ],
+        "seed": 104
+      }
+    ]
+  }
+}
